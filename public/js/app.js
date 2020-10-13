@@ -37264,7 +37264,12 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Enable All Tooltips on All Pages
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 /***/ }),
 

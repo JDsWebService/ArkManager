@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\View\Components\SocialMediaButton as SocialMediaButtonAlias;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
@@ -38,5 +39,6 @@ class AppServiceProvider extends ServiceProvider
             // Return false if not staff
             return false;
         });
+
     }
 }
