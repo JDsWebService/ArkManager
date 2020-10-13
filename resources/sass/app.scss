@@ -1,13 +1,17 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 // Variables
 @import 'variables';
 
 // Import Some Extra Bootstrap Helpers
-@import 'callouts';
-@import 'navbar';
+@import 'extensions/callouts';
+@import 'extensions/discord';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~phreakx-social/core';
+
+// Font Awesome
+@import 'fontawesome/fontawesome';

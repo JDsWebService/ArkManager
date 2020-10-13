@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Site Homepage (Index)
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
+
+// New Template Testing Route
+Route::get('/test', function () {
+    return view('layouts.testing');
+})->name('test');
 
 // Socialite Login
 Route::get('login/discord', 'Auth\LoginController@redirectToProvider')->name('login.discord');
