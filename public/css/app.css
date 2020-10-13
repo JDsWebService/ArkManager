@@ -185,6 +185,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #e43c5c;
 }
 
+.nav-menu a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 .nav-menu .drop-down > a:after {
     content: "\EA99";
     font-family: IcoFont;
