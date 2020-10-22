@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Coming Soon | CORK - Multipurpose Bootstrap Dashboard Template </title>
+    <title>ArkManager.app - Coming Soon!</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="stylesheet" href="{{ mix('css/user.css') }}">
     <link rel="stylesheet" href="{{ mix('css/coming-soon/style.css') }}">
