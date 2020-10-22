@@ -1,0 +1,11 @@
+// Theme Specific CSS
+.layout-px-spacing {
+    min-height: calc(100vh - 166px)!important;
+}
+
+// Sidebar //
+.sidebar-wrapper nav#sidebar ul.list-unstyled li.menu i {
+    font-size: 16px;
+    margin-top: 6px;
+    margin-right: 6px;
+}

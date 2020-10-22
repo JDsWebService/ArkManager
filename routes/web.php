@@ -19,9 +19,9 @@ Route::get('/', function () {
 })->name('index');
 
 // New Template Testing Route
-Route::get('/test', function () {
-    return view('layouts.testing');
-})->name('test');
+Route::get('/testing', function () {
+    return view('user.dashboard');
+})->name('testing');
 
 // Socialite Login
 Route::get('login/discord', 'Auth\LoginController@redirectToProvider')->name('login.discord');

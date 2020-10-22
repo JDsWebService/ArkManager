@@ -11,9 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.sass('resources/sass/fontawesome/fontawesome.scss', 'public/css')
+    // App Layout
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/fontawesome/fontawesome.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js')
+    // User Layout
+    .sass('resources/sass/user.scss', 'public/css')
+    .js('resources/js/user.js', 'public/js')
     .version();
 
 mix.browserSync({
