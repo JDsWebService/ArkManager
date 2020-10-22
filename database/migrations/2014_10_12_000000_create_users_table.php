@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->boolean('email_verified');
             $table->string('locale');
             $table->boolean('twofactor');
+            $table->boolean('admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

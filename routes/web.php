@@ -28,4 +28,4 @@ Route::get('login/discord', 'Auth\LoginController@redirectToProvider')->name('lo
 Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/user/dashboard', 'User\MainController@index')->name('user.dashboard');
+Route::get('/user/dashboard', 'User\MainController@dashboard')->name('user.dashboard');

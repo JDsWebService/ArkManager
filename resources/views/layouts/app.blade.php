@@ -61,9 +61,9 @@
                         <ul>
                             <li>
                                 @staff
-                                <a href="#">
-                                    <i class="fas fa-user-shield"></i> Admin Dashboard
-                                </a>
+                                    <a href="#">
+                                        <i class="fas fa-user-shield"></i> Admin Dashboard
+                                    </a>
                                 @endstaff
                             </li>
                             <li>

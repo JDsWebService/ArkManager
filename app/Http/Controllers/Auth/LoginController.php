@@ -88,6 +88,7 @@ class LoginController extends Controller
         $user->locale = $discordUser->user['locale'];
         $user->twofactor = $discordUser->user['mfa_enabled'];
 
+
         // Save User
         $user->save();
 
@@ -112,7 +113,8 @@ class LoginController extends Controller
         if(in_array($user->fullusername, $staff)) {
             // Create a session variable to be used by Blade Directive
             // Ref: AppServiceProvider.php
-            Session::put('isStaff', true);
+            $user->admin = true;
+            $user->save();
             return true;
         }
 
@@ -122,7 +124,6 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        Session::forget('isStaff');
         Session::flush();
         return redirect()->route('index');
     }
