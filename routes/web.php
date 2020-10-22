@@ -13,19 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Site Homepage (Index)
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+// Socialite Login
+Route::get('login/discord', 'Auth\LoginController@redirectToProvider')
+            ->name('login.discord');
+Route::get('logout', 'Auth\LoginController@logout')
+            ->name('logout');
+Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::prefix('user')->middleware('auth')->name('user.')->group(function () {
+    Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
+});
 
 // New Template Testing Route
-Route::get('/testing', function () {
-    return view('user.dashboard');
-})->name('testing');
+//Route::get('/testing', function () {
+//    return view('user.dashboard');
+//})->name('testing');
 
-// Socialite Login
-Route::get('login/discord', 'Auth\LoginController@redirectToProvider')->name('login.discord');
-Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-Route::get('/user/dashboard', 'User\MainController@dashboard')->name('user.dashboard');
+// Site Homepage (Index)
+Route::get('/', 'PagesController@index')->name('index');
