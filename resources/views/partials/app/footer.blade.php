@@ -54,7 +54,7 @@
 
         <div class="mr-md-auto text-center text-md-left">
             <div class="copyright">
-                &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
+                &copy; {{ \Carbon\Carbon::now()->year }} Copyright <strong><span>ArkManager.app</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

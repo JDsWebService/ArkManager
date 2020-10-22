@@ -24,10 +24,14 @@ Route::prefix('user')->middleware('auth')->name('user.')->group(function () {
     Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
 });
 
+// Coming Soon Routes
+Route::get('coming-soon', 'PagesController@comingsoon')->name('comingsoon');
+Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
+
 // New Template Testing Route
-//Route::get('/testing', function () {
-//    return view('user.dashboard');
-//})->name('testing');
+Route::get('/testing', function () {
+    return redirect()->route('comingsoon');
+})->name('testing');
 
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');

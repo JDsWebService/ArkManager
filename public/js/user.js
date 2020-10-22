@@ -39037,9 +39037,16 @@ function GetIEVersion() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-window.addEventListener("load", function () {
-  var load_screen = document.getElementById("load_screen");
-  document.body.removeChild(load_screen);
+$(window).on('load', function () {
+  $('#load_screen').fadeOut('slow', function () {
+    $(this).remove();
+
+    if ($("#messagesModal").length) {
+      $(document).ready(function () {
+        $("#messagesModal").modal('show');
+      });
+    }
+  });
 });
 
 /***/ }),

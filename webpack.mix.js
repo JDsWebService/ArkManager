@@ -18,6 +18,11 @@ mix.sass('resources/sass/fontawesome/fontawesome.scss', 'public/css')
     // User Layout
     .sass('resources/sass/user.scss', 'public/css')
     .js('resources/js/user.js', 'public/js')
+    // Coming Soon
+    .copy('resources/sass/user/pages/coming-soon/style.css', 'public/css/coming-soon')
+    .copy('resources/sass/user/forms/theme-checkbox-radio.css', 'public/css/coming-soon')
+    .copy('resources/sass/user/forms/switches.css', 'public/css/coming-soon')
+    .copy('resources/js/user/pages/coming-soon/coming-soon.js', 'public/js/coming-soon')
     .version();
 
 mix.browserSync({
