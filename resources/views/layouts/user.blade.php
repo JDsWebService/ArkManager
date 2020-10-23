@@ -17,9 +17,9 @@
     <div class="overlay"></div>
     <div class="search-overlay"></div>
 
-@include('partials.user.sidebar')
+    <x-user-sidebar/>
 
-<!--  BEGIN CONTENT PART  -->
+    <!--  BEGIN CONTENT PART  -->
     <div id="content" class="main-content">
         <div class="layout-px-spacing">
 

@@ -1,5 +1,5 @@
 <li class="menu">
-    <a href="#tribemenu" data-toggle="collapse" {{ strpos($routeName, 'tribe') !== false ? 'aria-expanded=true data-active=true' : ""}} class="dropdown-toggle">
+    <a href="#tribemenu" data-toggle="collapse" class="dropdown-toggle" {{ strpos($routeName, 'tribe') !== false ? 'aria-expanded=true data-active=true' : ""}}>
         <div class="">
             <i class="fas fa-campground"></i>
             <span> Tribe</span>

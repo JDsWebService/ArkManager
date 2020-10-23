@@ -6,11 +6,11 @@
 
         <ul class="list-unstyled menu-categories" id="userSidebar">
 
-            @include('partials.user.sidebar.dashboard')
+            @include('components.sidebar.dashboard')
 
-            @include('partials.user.sidebar.gettingstarted')
+            @include('components.sidebar.gettingstarted')
 
-            @include('partials.user.sidebar.tribe')
+            @include('components.sidebar.tribe')
 
         </ul>
 
