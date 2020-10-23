@@ -5,6 +5,7 @@
         <div class="shadow-bottom"></div>
 
         <ul class="list-unstyled menu-categories" id="userSidebar">
+
             @include('partials.user.sidebar.dashboard')
 
             @include('partials.user.sidebar.gettingstarted')

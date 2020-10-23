@@ -25,7 +25,12 @@ Route::middleware('auth')->group(function () {
 
     // Tribe Routes
     Route::prefix('tribe')->name('tribe.')->group(function () {
+
         Route::get('create', 'Tribe\TribeController@create')->name('create');
+        Route::post('store', 'Tribe\TribeController@store')->name('store');
+        Route::get('edit', 'Tribe\TribeController@edit')->name('edit');
+        Route::put('update', 'Tribe\TribeController@update')->name('update');
+
     });
 
 

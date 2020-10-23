@@ -26,6 +26,8 @@
             <div class="row layout-top-spacing">
 
                 <div class="col-sm-12">
+                    <h1>@yield('title')</h1>
+                    <hr>
                     @yield('content')
                 </div>
 

@@ -43,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Define the relationship between the user model and the tribe model
+    public function tribe() {
+        return $this->hasOne('App\Models\Tribe');
+    }
 }

@@ -9,11 +9,14 @@
         </div>
     </a>
     <ul class="collapse submenu list-unstyled {{ strpos($routeName, 'tribe') !== false ? 'show' : ""}}" id="tribemenu" data-parent="#userSidebar">
-        <li class="{{ $routeName == 'tribe.index' ? 'active' : '' }}">
-            <a href="#"><i class="far fa-eye"></i> View Your Tribe</a>
-        </li>
-        <li class="{{ $routeName == 'tribe.create' ? 'active' : '' }}">
-            <a href="{{ route('tribe.create') }}"><i class="far fa-plus-square"></i> Create New Tribe</a>
-        </li>
+        @if($user->tribe != null)
+            <li class="{{ $routeName == 'tribe.edit' ? 'active' : '' }}">
+                <a href="#"><i class="far fa-edit"></i> Edit Your Tribe</a>
+            </li>
+        @else
+            <li class="{{ $routeName == 'tribe.create' ? 'active' : '' }}">
+                <a href="{{ route('tribe.create') }}"><i class="far fa-plus-square"></i> Create Tribe</a>
+            </li>
+        @endif
     </ul>
 </li>

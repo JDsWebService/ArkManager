@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class UserSidebar extends Component
@@ -24,7 +25,10 @@ class UserSidebar extends Component
     public function render()
     {
         $routeName = \Illuminate\Support\Facades\Route::currentRouteName();
+        $user = Auth::user();
 
-        return view('components.user-sidebar')->withRouteName($routeName);
+        return view('components.user-sidebar')
+                        ->withRouteName($routeName)
+                        ->withUser($user);
     }
 }
