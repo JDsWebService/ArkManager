@@ -16,8 +16,8 @@ class PagesController extends Controller
      * @return \Illuminate\View\View
      */
     public function index() {
-        return redirect()->route('comingsoon');
-        // return view('index');
+         // return redirect()->route('comingsoon');
+         return view('index');
     }
 
     public function comingsoon() {

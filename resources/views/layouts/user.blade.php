@@ -6,6 +6,7 @@
 
 <body>
 @include('partials.user.preloader')
+@include('modals.app.messages')
 
 @include('partials.user.topnav')
 @include('partials.user.subnav')

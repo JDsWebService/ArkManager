@@ -3,11 +3,36 @@
     min-height: calc(100vh - 166px)!important;
 }
 
+// ------- //
 // Sidebar //
+// ------- //
+
+// Icon Menu Title
 .sidebar-wrapper nav#sidebar ul.list-unstyled li.menu i {
     font-size: 16px;
     margin-top: 6px;
     margin-right: 6px;
+}
+
+// Get rid of List Style in the sub menu links
+#sidebar ul.menu-categories li.menu ul.submenu > li a:before {
+    content: none;
+}
+
+// Redo the submenu spacing
+#sidebar ul.menu-categories ul.submenu > li a {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    height: 30px;
+    padding: 5px;
+    padding-left: 14px;
+    font-size: 13px;
+    color: #888ea8;
+}
+// Change the margin for the submenu icons
+#sidebar ul.menu-categories li.menu:first-child ul.submenu > li a i {
+    margin-right: 5px;
 }
 
 // Navbar //

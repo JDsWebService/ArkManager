@@ -13,25 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ------------------------------------------------- //
+// All Routes In This Block Must Have User Logged In //
+// ------------------------------------------------- //
+Route::middleware('auth')->group(function () {
+
+    // User Routes
+    Route::prefix('user')->name('user.')->group(function () {
+        Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
+    });
+
+    // Tribe Routes
+    Route::prefix('tribe')->name('tribe.')->group(function () {
+        Route::get('create', 'Tribe\TribeController@create')->name('create');
+    });
+
+
+});
+
 // Socialite Login
 Route::get('login/discord', 'Auth\LoginController@redirectToProvider')
-            ->name('login.discord');
+    ->name('login.discord');
 Route::get('logout', 'Auth\LoginController@logout')
-            ->name('logout');
+    ->name('logout');
 Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::prefix('user')->middleware('auth')->name('user.')->group(function () {
-    Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
-});
 
 // Coming Soon Routes
 Route::get('coming-soon', 'PagesController@comingsoon')->name('comingsoon');
 Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
 
 // New Template Testing Route
-Route::get('/testing', function () {
-    return redirect()->route('comingsoon');
-})->name('testing');
+//Route::get('/testing', function () {
+//    return redirect()->route('comingsoon');
+//})->name('testing');
 
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');

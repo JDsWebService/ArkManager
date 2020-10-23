@@ -20333,6 +20333,25 @@ readers do not read off random characters that represent icons */
   margin-right: 6px;
 }
 
+#sidebar ul.menu-categories li.menu ul.submenu > li a:before {
+  content: none;
+}
+
+#sidebar ul.menu-categories ul.submenu > li a {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  height: 30px;
+  padding: 5px;
+  padding-left: 14px;
+  font-size: 13px;
+  color: #888ea8;
+}
+
+#sidebar ul.menu-categories li.menu:first-child ul.submenu > li a i {
+  margin-right: 5px;
+}
+
 .header-container header.navbar ul.navbar-item .dropdown-item i {
   font-size: 16px;
   margin-top: 6px;
