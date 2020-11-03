@@ -23,8 +23,8 @@
             <div class="coming-soon-container">
                 <div class="coming-soon-content">
 
-                    <h4 class="">Coming Soon</h4>
-                    <p class="">We will be here in a shortwhile.....</p>
+                    <h4 class="">Ark Manager</h4>
+                    <p class="">We are expecting a December 31st Launch Date! We will have tons of awesome features including Dino Stat Tracker, Exported Dino INI File Parsing, Tribe Management, Blueprint Tracker, and more!</p>
 
                     <h3>Subscribe to get notified!</h3>
 
@@ -53,7 +53,7 @@
     <div class="coming-soon-image">
         <div class="l-image">
             <div class="img-content">
-                <img src="/images/user/mindset.svg" alt="coming_soon">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5fIAPcVdZO8?autoplay=1&widget_referrer=http://arkmanager.app&showinfo=0&autohide=1&controls=0&modestbranding=1&mute=1&disablekb=1&fs=0&iv_load_policy=3&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>

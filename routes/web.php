@@ -24,7 +24,7 @@ Route::middleware('auth.admin')->group(function () {
 
     });
     // Testing Route for debugging purposes.
-    Route::get('test', 'TestingController@test')->name('test');
+    Route::get('test', 'TestingController@test2')->name('test');
 });
 
 

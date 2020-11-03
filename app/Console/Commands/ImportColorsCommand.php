@@ -6,6 +6,7 @@ use App\Models\Dino\Color;
 use App\Handlers\ColorHandler;
 use Illuminate\Console\Command;
 use Symfony\Component\Yaml\Yaml;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Exception\ParseException;
 
@@ -44,7 +45,9 @@ class ImportColorsCommand extends Command
     {
         $fresh = $this->option('fresh');
         if($fresh) {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             Color::truncate();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         }
 
         $this->info('Starting the importation of colors from YAML file.');
