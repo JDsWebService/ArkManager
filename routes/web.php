@@ -68,3 +68,4 @@ Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
 
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');
+Route::get('/', 'PagesController@comingsoon')->name('index');
