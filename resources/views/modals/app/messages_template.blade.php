@@ -1,5 +1,5 @@
 {{-- Messages Modal --}}
-<div class="modal fade" id="messagesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="messagesModal" aria-hidden="true">
+<div class="modal fade" id="messagesModal" data-backdrop="static" data-keyboard="true" tabindex="-1" aria-labelledby="messagesModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">

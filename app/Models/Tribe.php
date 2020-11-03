@@ -13,4 +13,9 @@ class Tribe extends Model
     public function user() {
         return $this->belongsTo('App\Models\Auth\User');
     }
+
+    // Define the relationship between the dino model and the tribe model
+    public function dinos() {
+        return $this->hasMany('App\Models\Dino\Dino');
+    }
 }

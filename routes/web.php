@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ------------------------------------------------------ //
+// All routes in the block must be authorized as an admin
+// ------------------------------------------------------ //
+Route::middleware('auth.admin')->group(function () {
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+
+        Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
+
+    });
+    // Testing Route for debugging purposes.
+    Route::get('test', 'TestingController@test')->name('test');
+});
+
+
 // ------------------------------------------------- //
 // All Routes In This Block Must Have User Logged In //
 // ------------------------------------------------- //
@@ -32,7 +47,6 @@ Route::middleware('auth')->group(function () {
         Route::put('update', 'Tribe\TribeController@update')->name('update');
 
     });
-
 
 });
 

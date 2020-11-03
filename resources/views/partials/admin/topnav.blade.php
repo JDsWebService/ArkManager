@@ -6,11 +6,11 @@
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
                 <a href="{{ route('index') }}">
-                    <img src="{{ asset('images/logo.png') }}" class="navbar-logo" alt="logo">
+                    <img src="{{ asset('icons/admin.png') }}" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="{{ route('index') }}" class="nav-link"> ArkManager </a>
+                <a href="{{ route('index') }}" class="nav-link"> ArkManager<span class="text-danger">Admin</span> </a>
             </li>
         </ul>
 
@@ -18,18 +18,10 @@
         <ul class="navbar-item flex-row ml-md-auto">
             <li class="nav-item dropdown user-profile-dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{ $user->avatar }}" alt="avatar">
+                    <img src="{{ \Auth::user()->avatar }}" alt="avatar">
                 </a>
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div>
-                        @staff
-                            <div class="dropdown-item">
-                                <a href="{{ route('admin.dashboard') }}">
-                                    <i class="fas fa-user-lock"></i>
-                                    Admin Dashboard
-                                </a>
-                            </div>
-                        @endstaff
                         <div class="dropdown-item">
                             <a href="{{ route('user.dashboard') }}">
                                 <i class="fas fa-tachometer-alt"></i>

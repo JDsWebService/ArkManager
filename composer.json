@@ -19,7 +19,8 @@
         "laravel/ui": "2.4",
         "laravelcollective/html": "^6.2",
         "mews/purifier": "^3.3",
-        "socialiteproviders/discord": "^2.0"
+        "socialiteproviders/discord": "^2.0",
+        "symfony/yaml": "^5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
