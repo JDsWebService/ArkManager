@@ -8,7 +8,6 @@
 
             @include('components.sidebar.adminDashboard')
             @include('components.sidebar.dashboard')
-            @include('components.sidebar.adminColors')
 
         </ul>
 
