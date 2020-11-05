@@ -38681,6 +38681,13 @@ $(function () {
 
 __webpack_require__(/*! ./user/main */ "./resources/js/user/main.js");
 
+$(document).ready(function () {
+  $('#fileUpload').change(function (e) {
+    var fileName = e.target.files[0].name;
+    $('#fileUploadPTag').text("Uploading file: " + fileName);
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/user/app.js":

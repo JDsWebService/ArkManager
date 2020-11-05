@@ -12,6 +12,8 @@
 
             @include('components.sidebar.tribe')
 
+            @include('components.sidebar.dino')
+
         </ul>
 
     </nav>

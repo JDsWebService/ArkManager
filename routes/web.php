@@ -38,6 +38,12 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
     });
 
+    // Dino Routes
+    Route::prefix('dino')->name('dino.')->group(function () {
+        Route::get('import', 'Dino\DinoController@import')->name('import');
+        Route::post('parse', 'Dino\DinoController@parse')->name('parse');
+    });
+
     // Tribe Routes
     Route::prefix('tribe')->name('tribe.')->group(function () {
 
@@ -68,4 +74,4 @@ Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
 
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');
-Route::get('/', 'PagesController@comingsoon')->name('index');
+//Route::get('/', 'PagesController@comingsoon')->name('index');

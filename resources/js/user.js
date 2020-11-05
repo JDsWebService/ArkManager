@@ -16,3 +16,10 @@ $(function () {
 
 // Theme Specific JS
 require('./user/main');
+
+$(document).ready(function(){
+    $('#fileUpload').change(function (e) {
+        var fileName = e.target.files[0].name;
+        $('#fileUploadPTag').text("Uploading file: " + fileName);
+    });
+});

@@ -12,7 +12,6 @@
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
-        "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
@@ -20,6 +19,8 @@
         "laravelcollective/html": "^6.2",
         "mews/purifier": "^3.3",
         "socialiteproviders/discord": "^2.0",
+        "symfony/css-selector": "^5.1",
+        "symfony/dom-crawler": "^5.1",
         "symfony/yaml": "^5.1"
     },
     "require-dev": {
