@@ -11,7 +11,7 @@
     </a>
 
     <!-- Dropdown Menu -->
-    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'tribe') !== false ? 'show' : ""}}" id="getting-started" data-parent="#userSidebar">
+    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'help') !== false ? 'show' : ""}}" id="getting-started" data-parent="#userSidebar">
 
         <li class="{{ $routeName == 'help.tribe' ? 'active' : '' }}">
             <a href="#">

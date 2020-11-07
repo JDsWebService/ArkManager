@@ -11,7 +11,7 @@
     <ul class="collapse submenu list-unstyled {{ strpos($routeName, 'tribe') !== false ? 'show' : ""}}" id="tribemenu" data-parent="#userSidebar">
         @if($user->tribe != null)
             <li class="{{ $routeName == 'tribe.edit' ? 'active' : '' }}">
-                <a href="#"><i class="far fa-edit"></i> Edit Your Tribe</a>
+                <a href="{{ route('tribe.edit', Auth::user()->tribe->slug) }}"><i class="far fa-edit"></i> Edit Your Tribe</a>
             </li>
         @else
             <li class="{{ $routeName == 'tribe.create' ? 'active' : '' }}">
