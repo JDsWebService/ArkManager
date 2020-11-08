@@ -48,4 +48,9 @@ class User extends Authenticatable
     public function tribe() {
         return $this->hasOne('App\Models\Tribe');
     }
+
+    // Define the relationship between the log model and this one
+    public function logs() {
+        return $this->hasMany('App\Models\Log');
+    }
 }

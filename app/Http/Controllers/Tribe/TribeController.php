@@ -34,7 +34,7 @@ class TribeController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse, void
      */
-    public function edit() {
+    public function edit($slug) {
         $user = Auth::user();
         $tribe = Tribe::where('slug', $user->tribe->slug)->first();
 
