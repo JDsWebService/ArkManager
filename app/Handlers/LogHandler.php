@@ -25,7 +25,13 @@ class LogHandler {
      */
     private static $user;
 
-
+    /**
+     * Adds an event into the logs table in the database.
+     *
+     * @param string $type login|logout|store|update|cli|error|generic
+     * @param string $location Controller@Method
+     * @param string $message (Optional) Add a message to the payload
+     */
     public static function event(string $type, string $location, string $message = "") {
         try {
             self::checkIfTypeIsValid($type);
@@ -56,12 +62,25 @@ class LogHandler {
         }
     }
 
+    /**
+     * Checks if the type given is of a valid type
+     *
+     * @param string $type
+     * @throws LogException
+     */
     private static function checkIfTypeIsValid(string $type) {
         if(!in_array($type, self::types)) {
             throw new LogException("Log type of '{$type}' is not a valid type for LogHandler@event");
         }
     }
 
+    /**
+     * Assigns the passed values from the event method into private global static variables.
+     *
+     * @param string $type Passed from event function.
+     * @param string $location Passed from event function.
+     * @param string $message Passed from event function.
+     */
     private static function assignToVariables(string $type, string $location, string $message) {
         self::$type = $type;
         self::$location = $location;
@@ -71,6 +90,9 @@ class LogHandler {
         }
     }
 
+    /**
+     * Adds an Authentication type event to the database.
+     */
     private static function addAuthenticationEvent()
     {
         $log = new Log;
@@ -79,6 +101,9 @@ class LogHandler {
         self::saveLog($log);
     }
 
+    /**
+     * Adds a Controller type event to the database.
+     */
     private static function addControllerEvent()
     {
         $log = new Log;
@@ -87,6 +112,9 @@ class LogHandler {
         self::saveLog($log);
     }
 
+    /**
+     * Adds a CLI type event to the database.
+     */
     private static function addCliEvent()
     {
         $log = new Log;
@@ -100,6 +128,11 @@ class LogHandler {
         self::saveLog($log);
     }
 
+    /**
+     * Adds an error type event to the database.
+     *
+     * @param string|null $message Payload message to store.
+     */
     private static function addErrorEvent(string $message = null) {
         $log = new Log;
         $log->payload = self::$message;
@@ -111,6 +144,9 @@ class LogHandler {
         self::saveLog($log);
     }
 
+    /**
+     * Adds a Generic type event into the database.
+     */
     private static function addGenericEvent()
     {
         $log = new Log;
@@ -123,6 +159,12 @@ class LogHandler {
         self::saveLog($log);
     }
 
+    /**
+     * Saves the event into the database.
+     *
+     * @param Log $log
+     * @return \Illuminate\Http\RedirectResponse
+     */
     private static function saveLog(Log $log) {
         $log->user_id = self::getUserID();
         try {
@@ -133,6 +175,11 @@ class LogHandler {
         }
     }
 
+    /**
+     * Get the correct payload to enter in the database depending on type of authentication event.
+     *
+     * @return string
+     */
     private static function getAuthenticationEventPayload() {
         if(self::$type == 'login') {
             return "User [id: " . self::$user->id . ", username: " . self::$user->username . "] has logged in.";
@@ -140,6 +187,9 @@ class LogHandler {
         return "User [id: " . self::$user->id . ", username: " . self::$user->username . "] has logged out.";
     }
 
+    /**
+     * @return string Get the correct payload to enter in the database depending on type of controller event.
+     */
     private static function getControllerEventPayload()
     {
         if(self::$type == 'store') {
@@ -148,6 +198,12 @@ class LogHandler {
         return "UPDATE method was called on controller " . self::$location . ".";
     }
 
+    /**
+     * Makes sure that the global static message is set. If it is, then return that message.
+     *
+     * @return string
+     * @throws LogException
+     */
     private static function getEventPayload()
     {
         if(self::$message == "") {
@@ -156,6 +212,11 @@ class LogHandler {
         return self::$message;
     }
 
+    /**
+     * Gets the authenticated user.
+     *
+     * @return \App\Models\Auth\User|null
+     */
     private static function getUserID()
     {
         if(self::$user != null) {
