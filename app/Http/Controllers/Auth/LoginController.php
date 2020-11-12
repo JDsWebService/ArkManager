@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Auth\User;
+use App\Handlers\LogHandler;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -94,6 +95,8 @@ class LoginController extends Controller
 
         Auth::login($user, true);
 
+        LogHandler::event('login', 'LoginController@login');
+
         $this->isUserStaff($user);
 
         // dd(Auth::user());
@@ -124,6 +127,7 @@ class LoginController extends Controller
     }
 
     public function logout() {
+        LogHandler::event('logout', 'LoginController@logout');
         Auth::logout();
         Session::flush();
         return redirect()->route('index');

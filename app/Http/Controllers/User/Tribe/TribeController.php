@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Tribe;
+namespace App\Http\Controllers\User\Tribe;
 
+use App\Handlers\LogHandler;
 use App\Http\Controllers\Controller;
-use App\Models\Tribe;
+use App\Models\User\Tribe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,8 @@ class TribeController extends Controller
         // Handle the Tribe Information from the Request
         $tribe = $this->handleTribeInfo($request);
 
+        LogHandler::event('store', 'TribeController@store');
+
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully created your tribe!');
 
@@ -82,6 +85,8 @@ class TribeController extends Controller
         ]);
 
         $tribe = $this->handleTribeInfo($request);
+
+        LogHandler::event('update', 'TribeHandler@update');
 
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully saved your tribe!');

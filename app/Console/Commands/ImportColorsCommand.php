@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Dino\Color;
+use App\Models\Ark\Color;
+use App\Handlers\LogHandler;
 use App\Handlers\ColorHandler;
 use Illuminate\Console\Command;
 use Symfony\Component\Yaml\Yaml;
@@ -121,6 +122,7 @@ class ImportColorsCommand extends Command
 
         $this->info('');
         $this->info("Imported {$colorsCount} colors to the database successfully.\n");
+        LogHandler::event('cli', 'ImportColorsCommand', 'import:colors command was run successfully');
         $bar->finish();
     }
 }

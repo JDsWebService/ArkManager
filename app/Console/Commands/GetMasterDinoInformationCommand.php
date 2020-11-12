@@ -3,9 +3,11 @@
 namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Str;
+use App\Models\Ark\Dino;
+use App\Handlers\LogHandler;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\QueryException;
 use Symfony\Component\DomCrawler\Crawler;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Exceptions\ArkIDParser\CardException;
@@ -133,10 +135,10 @@ class GetMasterDinoInformationCommand extends Command
             // Grab all of the data and put it into an array
             $dinoData[$name] = [
                 'name' => $name,
-                'id' => $dinoID,
+                'ark_id' => $dinoID,
                 'name_tag' => $nameTag,
                 'type' => $dinoType,
-                'dlc' => $dlc['bool'],
+                'is_dlc' => $dlc['bool'],
                 'dlc_name' => $dlc['name'],
                 'description' => $description,
                 'spawn_command' => $spawnCommand,
@@ -146,6 +148,10 @@ class GetMasterDinoInformationCommand extends Command
                 'image_filename' => $imageData['fileName'],
                 'image_extension' => $imageData['extension'],
             ];
+
+            // Save into the database
+            $this->storeDinoInfoInDatabase($dinoData[$name]);
+
             $linksBar->advance(1);
         }
         $this->finishProgressBar($linksBar, 'Finished looking at all the dino pages...');
@@ -153,6 +159,7 @@ class GetMasterDinoInformationCommand extends Command
         $this->info("Storing DinoData[] to dinos.json file...\n");
         Storage::put('/public/arkids/dinos.json', json_encode($dinoData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         $this->info("Command completed!\n");
+        LogHandler::event('cli', 'GetMasterDinoInformationCommand', 'import:dinos command was run successfully');
         return 0;
 
     }
@@ -298,5 +305,33 @@ class GetMasterDinoInformationCommand extends Command
             return $infoCard;
         }
         throw new CardException('InfoCard not able to be located. Check to see if DOMCrawler filter is picking the right html tag.');
+    }
+
+    /**
+     * Stores the dino information into the database.
+     *
+     * @param array $data
+     * @return string
+     */
+    private function storeDinoInfoInDatabase(array $data) {
+        $dino = new Dino;
+        $dino->name = $data['name'];
+        $dino->ark_id = $data['ark_id'];
+        $dino->name_tag = $data['name_tag'];
+        $dino->type = $data['type'];
+        $dino->is_dlc = $data['is_dlc'];
+        $dino->dlc_name = $data['dlc_name'];
+        $dino->description = $data['description'];
+        $dino->spawn_command = $data['spawn_command'];
+        $dino->image_url = $data['image_url'];
+        $dino->image_public_path = $data['image_public_path'];
+        $dino->image_storage_path = $data['image_storage_path'];
+        $dino->image_filename = $data['image_filename'];
+        $dino->image_extension = $data['image_extension'];
+        try {
+            $dino->save();
+        } catch (QueryException $e) {
+            return $e->getMessage();
+        }
     }
 }

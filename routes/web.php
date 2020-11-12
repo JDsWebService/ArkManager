@@ -20,7 +20,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::prefix('admin')->name('admin.')->group(function () {
 
-        Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
+    Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
 
     });
     // Testing Route for debugging purposes.
@@ -40,17 +40,21 @@ Route::middleware('auth')->group(function () {
 
     // Dino Routes
     Route::prefix('dino')->name('dino.')->group(function () {
-        Route::get('import', 'Dino\DinoController@import')->name('import');
-        Route::post('parse', 'Dino\DinoController@parse')->name('parse');
+        // Breeding Lines
+        Route::prefix('line')->name('line.')->group(function () {
+
+        });
+        //Route::get('import', 'Dino\DinoController@import')->name('import');
+        //Route::post('parse', 'Dino\DinoController@parse')->name('parse');
     });
 
     // Tribe Routes
     Route::prefix('tribe')->name('tribe.')->group(function () {
 
-        Route::get('create', 'Tribe\TribeController@create')->name('create');
-        Route::post('store', 'Tribe\TribeController@store')->name('store');
-        Route::get('edit/{slug}', 'Tribe\TribeController@edit')->name('edit');
-        Route::put('update', 'Tribe\TribeController@update')->name('update');
+        Route::get('create', 'User\Tribe\TribeController@create')->name('create');
+        Route::post('store', 'User\Tribe\TribeController@store')->name('store');
+        Route::get('edit/{slug}', 'User\Tribe\TribeController@edit')->name('edit');
+        Route::put('update', 'User\Tribe\TribeController@update')->name('update');
 
     });
 
@@ -67,11 +71,7 @@ Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallbac
 Route::get('coming-soon', 'PagesController@comingsoon')->name('comingsoon');
 Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
 
-// New Template Testing Route
-//Route::get('/testing', function () {
-//    return redirect()->route('comingsoon');
-//})->name('testing');
-
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');
+// Coming Soon Redirect
 //Route::get('/', 'PagesController@comingsoon')->name('index');
