@@ -12,4 +12,8 @@ class Dino extends Model
      * @var string
      */
     protected $table = 'ark_dinos';
+
+    public function lines() {
+        return $this->hasMany('App\Models\User\Dino\Line');
+    }
 }

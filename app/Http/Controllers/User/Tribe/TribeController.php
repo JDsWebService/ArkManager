@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User\Tribe;
 
 use App\Handlers\LogHandler;
+use App\Exceptions\TribeException;
 use App\Http\Controllers\Controller;
 use App\Models\User\Tribe;
 use Illuminate\Http\Request;
@@ -61,7 +62,12 @@ class TribeController extends Controller
         ]);
 
         // Handle the Tribe Information from the Request
-        $tribe = $this->handleTribeInfo($request);
+        try {
+            $this->handleTribeInfo($request);
+        } catch (TribeException $e) {
+            Session::flash('danger', $e->getMessage());
+            return redirect()->route('tribe.create');
+        }
 
         LogHandler::event('store', 'TribeController@store');
 
@@ -84,7 +90,13 @@ class TribeController extends Controller
             'founded_on' => 'required|date'
         ]);
 
-        $tribe = $this->handleTribeInfo($request);
+        try {
+            $this->handleTribeInfo($request);
+        } catch (TribeException $e) {
+            $user = Auth::user();
+            Session::flash('danger', $e->getMessage());
+            return redirect()->route('tribe.edit', $user->tribe->slug);
+        }
 
         LogHandler::event('update', 'TribeHandler@update');
 
@@ -116,6 +128,14 @@ class TribeController extends Controller
         $tribe->founded_on = $request->founded_on;
         $tribe->user_id = $user->id;
         $tribe->slug = Str::slug($name . '-' . $user->provider_id);
+
+
+        if($request->use_true_values == null && $request->use_stat_levels == null) {
+            throw new TribeException('You must select either Use True Values or Use Stat Levels under the Breeding Tracker Settings.');
+        }
+
+        $tribe->use_true_values = ($request->use_true_values) ? true : false;
+        $tribe->use_stat_levels = ($request->use_stat_levels) ? true : false;
 
         // Save The Tribe
         $tribe->save();

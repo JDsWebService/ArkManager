@@ -1,6 +1,6 @@
 <li class="menu">
     <!-- Sidebar Parent Title -->
-    <a href="#dino-menu" data-toggle="collapse" class="dropdown-toggle" {{ strpos($routeName, 'user.dino') !== false ? 'aria-expanded=true data-active=true' : ""}}>
+    <a href="#dino-menu" data-toggle="collapse" class="dropdown-toggle" {{ strpos($routeName, 'dino.line') !== false ? 'aria-expanded=true data-active=true' : ""}}>
         <div>
             <i class="fas fa-dragon"></i>
             <span>Dinos</span>
@@ -11,11 +11,17 @@
     </a>
 
     <!-- Dropdown Menu -->
-    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'user.dino') !== false ? 'show' : ""}}" id="dino-menu" data-parent="#userSidebar">
+    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'dino.line') !== false ? 'show' : ""}}" id="dino-menu" data-parent="#userSidebar">
 
-        <li class="{{ $routeName == 'user.dino.import' ? 'active' : '' }}">
-            <a href="{{ route('dino.import') }}">
-                <i class="fas fa-file-import"></i> Import From INI
+        <li class="{{ $routeName == 'dino.line.new' ? 'active' : '' }}">
+            <a href="{{ route('dino.line.new') }}">
+                <i class="fas fa-baby"></i> New Breeding Line
+            </a>
+        </li>
+
+        <li class="{{ $routeName == 'dino.line.index' ? 'active' : '' }}">
+            <a href="{{ route('dino.line.index') }}">
+                <i class="far fa-eye"></i> View Breeding Lines
             </a>
         </li>
 

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use App\View\Components\SocialMediaButton as SocialMediaButtonAlias;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -40,6 +41,11 @@ class AppServiceProvider extends ServiceProvider
             // Return false if not staff
             return false;
         });
+
+        /**
+         * Defines the default pagination view.
+         */
+        Paginator::defaultView('vendor.pagination.user');
 
     }
 }

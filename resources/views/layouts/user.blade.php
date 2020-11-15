@@ -25,7 +25,7 @@
 
             <div class="row layout-top-spacing">
 
-                <div class="col-sm-12">
+                <div class="col-sm-12 mb-5">
                     <h1>@yield('title')</h1>
                     <hr>
                     @yield('content')
@@ -43,6 +43,9 @@
 <!-- END MAIN CONTAINER -->
 
 <script src="{{ mix('js/user.js') }}"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
 </body>
 </html>

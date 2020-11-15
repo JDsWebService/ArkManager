@@ -39,11 +39,21 @@ Route::middleware('auth')->group(function () {
     });
 
     // Dino Routes
-    Route::prefix('dino')->name('dino.')->group(function () {
+    Route::prefix('dino')->middleware('user.intribe')->name('dino.')->group(function () {
+
         // Breeding Lines
         Route::prefix('line')->name('line.')->group(function () {
-
+            Route::get('/', 'User\Dino\BreedingLinesController@index')->name('index');
+            Route::get('edit/{slug}', 'User\Dino\BreedingLinesController@edit')->name('edit');
+            Route::get('new', 'User\Dino\BreedingLinesController@new')->name('new');
+            Route::post('typeselection', 'User\Dino\BreedingLinesController@typeselection')->name('typeselection');
+            Route::get('{dino_name}/basestatinput', 'User\Dino\BreedingLinesController@basestatinput')->name('basestatinput');
+            Route::post('store', 'User\Dino\BreedingLinesController@store')->name('store');
+            Route::put('store', 'User\Dino\BreedingLinesController@store')->name('update');
+            Route::delete('destroy/{line_slug}', 'User\Dino\BreedingLinesController@destroy')->name('delete');
         });
+
+
         //Route::get('import', 'Dino\DinoController@import')->name('import');
         //Route::post('parse', 'Dino\DinoController@parse')->name('parse');
     });

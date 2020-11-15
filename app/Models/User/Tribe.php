@@ -17,4 +17,8 @@ class Tribe extends Model
     public function user() {
         return $this->belongsTo('App\Models\Auth\User');
     }
+
+    public function breedingLines() {
+        return $this->hasMany('App\Models\User\Dino\Line');
+    }
 }
