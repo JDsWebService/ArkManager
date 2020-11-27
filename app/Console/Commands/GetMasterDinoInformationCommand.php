@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
-use App\Models\Ark\Dino;
 use App\Handlers\LogHandler;
 use Illuminate\Console\Command;
+use App\Models\Ark\ArkDinoMetaInfo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use Symfony\Component\DomCrawler\Crawler;
@@ -314,7 +314,7 @@ class GetMasterDinoInformationCommand extends Command
      * @return string
      */
     private function storeDinoInfoInDatabase(array $data) {
-        $dino = new Dino;
+        $dino = new ArkDinoMetaInfo;
         $dino->name = $data['name'];
         $dino->ark_id = $data['ark_id'];
         $dino->name_tag = $data['name_tag'];

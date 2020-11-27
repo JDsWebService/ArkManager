@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArkColorsTable extends Migration
+class CreateArkDinoColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateArkColorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ark_colors', function (Blueprint $table) {
+        Schema::create('ark_dino_colors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('colorID')->index();
             $table->string('name');
@@ -38,6 +38,6 @@ class CreateArkColorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ark_colors');
+        Schema::dropIfExists('ark_dino_colors');
     }
 }

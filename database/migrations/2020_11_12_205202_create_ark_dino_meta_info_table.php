@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArkDinosTable extends Migration
+class CreateArkDinoMetaInfoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateArkDinosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ark_dinos', function (Blueprint $table) {
+        Schema::create('ark_dino_meta_info', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('ark_id');
@@ -39,6 +39,6 @@ class CreateArkDinosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ark_dinos');
+        Schema::dropIfExists('ark_dino_meta_info');
     }
 }

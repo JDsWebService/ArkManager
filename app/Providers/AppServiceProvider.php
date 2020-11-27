@@ -47,5 +47,21 @@ class AppServiceProvider extends ServiceProvider
          */
         Paginator::defaultView('vendor.pagination.user');
 
+        /**
+         * Share the view name with all views!
+         */
+        view()->composer('*', function($view){
+            view()->share('viewName', $view->getName());
+        });
+
+        /**
+         * Share the root view name with all views!
+         */
+        view()->composer('*', function($view){
+            $data = explode('.', $view->getName());
+            $rootViewName = $data[0];
+            view()->share('rootViewName', $rootViewName);
+        });
+
     }
 }

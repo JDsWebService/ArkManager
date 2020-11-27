@@ -6,9 +6,25 @@
         <ul class="navbar-nav flex-row">
             <li>
                 <div class="page-header">
-                    <div class="page-title">
-                        <h3>@yield('title')</h3>
-                    </div>
+                    @if(View::exists($rootViewName . '.breadcrumbs'))
+                        <nav class="breadcrumb-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('user.dashboard') }}">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                @include($rootViewName . '.breadcrumbs')
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    @yield('title')
+                                </li>
+                            </ol>
+                        </nav>
+                    @else
+                        <div class="page-title">
+                            <h3>@yield('title')</h3>
+                        </div>
+                    @endif
                 </div>
             </li>
         </ul>

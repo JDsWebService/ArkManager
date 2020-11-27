@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Ark\Color;
+use App\Models\Ark\ArkDinoColor;
 use App\Handlers\LogHandler;
 use App\Handlers\ColorHandler;
 use Illuminate\Console\Command;
@@ -47,7 +47,7 @@ class ImportColorsCommand extends Command
         $fresh = $this->option('fresh');
         if($fresh) {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-            Color::truncate();
+            ArkDinoColor::truncate();
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         }
 
@@ -74,7 +74,7 @@ class ImportColorsCommand extends Command
             $this->info('Adding color: ' . $values['name'] . ' with the ID of: ' . $colorID);
 
             // Create new color model instance
-            $color = new Color;
+            $color = new ArkDinoColor;
             // Assign meta data
             $color->colorID = $colorID;
             $color->name = $values['name'];

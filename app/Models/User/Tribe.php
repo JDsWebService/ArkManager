@@ -13,12 +13,21 @@ class Tribe extends Model
      */
     protected $table = 'user_tribes';
 
-    // Define the relationship between the user model and tribe model
+    /**
+     * Defines the relationship between the user model and the tribe model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user() {
         return $this->belongsTo('App\Models\Auth\User');
     }
 
-    public function breedingLines() {
-        return $this->hasMany('App\Models\User\Dino\Line');
+    /**
+     * Defines the relationship between the tribe and the Base Dino model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function baseDinos() {
+        return $this->hasMany('App\Models\Dino\BaseDino');
     }
 }

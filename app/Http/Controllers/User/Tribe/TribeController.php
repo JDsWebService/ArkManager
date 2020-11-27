@@ -134,6 +134,10 @@ class TribeController extends Controller
             throw new TribeException('You must select either Use True Values or Use Stat Levels under the Breeding Tracker Settings.');
         }
 
+        if($request->use_true_values != null && $request->use_stat_levels != null) {
+            throw new TribeException('You must select one way to input your dinos stats. Either True Values or Stat Levels. You can not select both.');
+        }
+
         $tribe->use_true_values = ($request->use_true_values) ? true : false;
         $tribe->use_stat_levels = ($request->use_stat_levels) ? true : false;
 
