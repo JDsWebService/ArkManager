@@ -13,15 +13,15 @@
     <!-- Dropdown Menu -->
     <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'dino') !== false ? 'show' : ""}}" id="dino-menu" data-parent="#userSidebar">
 
-        <li class="{{ $routeName == 'INSERT_ROUTE_NAME' ? 'active' : '' }}">
-            <a href="">
+        <li class="{{ $routeName == 'dino.new.baseDino' ? 'active' : '' }}">
+            <a href="{{ route('dino.new.base') }}">
                 <i class="fas fa-baby"></i> New Base Dino
             </a>
         </li>
 
-        <li class="{{ $routeName == 'INSERT_ROUTE_NAME' ? 'active' : '' }}">
-            <a href="">
-                <i class="far fa-eye"></i> View Breeding Lines
+        <li class="{{ $routeName == 'dino.index' ? 'active' : '' }}">
+            <a href="{{ route('dino.index') }}">
+                <i class="far fa-eye"></i> View Tracked Dinos
             </a>
         </li>
 

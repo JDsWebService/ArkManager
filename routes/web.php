@@ -48,7 +48,27 @@ Route::middleware('auth')->group(function () {
 
     }); // End Tribe Routes
 
+    // Dino Routes
+    Route::prefix('dino')
+           ->name('dino.')
+           ->middleware('user.intribe')
+           ->group(function () {
 
+        Route::get('new/base-dino', 'Dino\DinosController@newBaseDino')->name('new.base');
+        Route::post('store/base-dino', 'Dino\DinosController@storeBaseDino')->name('store.base');
+        Route::get('show/line/{uuid}', 'Dino\DinosController@showLine')->name('show.line');
+        Route::get('edit/base-dino/{slug}', 'Dino\DinosController@editBaseDino')->name('edit.base');
+        Route::put('update/base-dino/{slug}', 'Dino\DinosController@updateBaseDino')->name('update.base');
+        Route::delete('destroy/line/{uuid}', 'Dino\DinosController@destroyLine')->name('destroy.line');
+        Route::get('new/mutation/{uuid}', 'Dino\DinosController@newMutatedDino')->name('new.mutation');
+        Route::post('store/mutation/{uuid}', 'Dino\DinosController@storeMutatedDino')->name('store.mutation');
+        Route::get('edit/mutated-dino/{slug}', 'Dino\DinosController@editMutatedDino')->name('edit.mutation');
+        Route::put('update/mutated-dino/{slug}', 'Dino\DinosController@updateMutatedDino')->name('update.mutation');
+        Route::delete('destroy/mutation/{slug}', 'Dino\DinosController@destroyMutatedDino')->name('destroy.mutation');
+
+        Route::get('/', 'Dino\DinosController@index')->name('index');
+
+    });
 
 });
 
