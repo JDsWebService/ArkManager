@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="level">Current Level</label>
-                    {{ Form::number('level', $baseDino->level, ['class' => 'form-control', 'placeholder' => 1]) }}
+                    {{ Form::number('level', $baseDino->level, ['class' => 'form-control', 'placeholder' => 1, 'autofocus']) }}
                 </div>
             </div>
             <hr>

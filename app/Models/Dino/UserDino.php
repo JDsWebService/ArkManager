@@ -51,4 +51,30 @@ class UserDino extends Model
         $lastMutation = $this->where('uuid', $this->uuid)->orderBy('mutation_count', 'desc')->first()->mutation_count;
         return $lastMutation + 1;
     }
+
+    /**
+     * Returns the level of the newest dino of the line
+     * @return mixed
+     */
+    public function getNewestDinoLevelAttribute() {
+        $level = $this->where('uuid', $this->uuid)->orderBy('mutation_count', 'desc')->first()->level;
+        return $level;
+    }
+
+    /**
+     * Returns the highest stat value of the newest dino in the line
+     *
+     * @return mixed
+     */
+    public function getNewestDinoStatValueAttribute() {
+        $newestDino = $this->where('uuid', $this->uuid)->orderBy('mutation_count', 'desc')->first();
+        $mutationType = $newestDino->getRawOriginal('mutation_type');
+        return $newestDino->{$mutationType};
+    }
+
+    public function getBaseDinoStatValueAttribute() {
+        $baseDino = $this->where('uuid', $this->uuid)->where('mutation_count', 0)->first();
+        $mutationType = $baseDino->getRawOriginal('mutation_type');
+        return $baseDino->{$mutationType};
+    }
 }

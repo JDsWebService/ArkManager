@@ -1,9 +1,10 @@
 <table class="table-small table-hover w-100 text-center">
     <thead>
         <tr class="font-weight-bold">
-            <th scope="col" style="width: 30%;">Suggested Name</th>
-            <th scope="col" style="width: 30%;">Mutation Count</th>
-            <th scope="col" style="width: 30%;">New Value</th>
+            <th scope="col" style="width: 22.5%;">Suggested Name</th>
+            <th scope="col" style="width: 22.5%;">Level</th>
+            <th scope="col" style="width: 22.5%;">Mutation Count</th>
+            <th scope="col" style="width: 22.5%;">New Value</th>
             <th style="width: 10%;"></th>
         </tr>
     </thead>
@@ -11,6 +12,7 @@
         @foreach($mutatedDinos as $dino)
             <tr>
                 <td>{{ $dino->name }}</td>
+                <td>{{ $dino->level }}</td>
                 <td>{{ $dino->mutation_count }}</td>
                 <td>{{ $dino->{$dino->getRawOriginal('mutation_type')} }}</td>
                 <td>

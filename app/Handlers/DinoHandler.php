@@ -257,18 +257,18 @@ class DinoHandler
     {
         $rules = [
             'level' => 'required|integer|min:1',
-            'health' => 'nullable|numeric|min:1',
-            'stamina' => 'nullable|numeric|min:1',
-            'torpidity' => 'nullable|numeric|min:1',
-            'oxygen' => 'nullable|numeric|min:1',
-            'food' => 'nullable|numeric|min:1',
-            'water' => 'nullable|numeric|min:1',
-            'temperature' => 'nullable|numeric|min:1',
-            'weight' => 'nullable|numeric|min:1',
-            'damage' => 'nullable|numeric|min:1',
-            'movement' => 'nullable|numeric|min:1',
-            'fortitude' => 'nullable|numeric|min:1',
-            'crafting' => 'nullable|numeric|min:1',
+            'health' => 'nullable|numeric',
+            'stamina' => 'nullable|numeric',
+            'torpidity' => 'nullable|numeric',
+            'oxygen' => 'nullable|numeric',
+            'food' => 'nullable|numeric',
+            'water' => 'nullable|numeric',
+            'temperature' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
+            'damage' => 'nullable|numeric',
+            'movement' => 'nullable|numeric',
+            'fortitude' => 'nullable|numeric',
+            'crafting' => 'nullable|numeric',
         ];
         $rules[$request->mutation_type] = 'required|numeric|min:1';
         return $rules;

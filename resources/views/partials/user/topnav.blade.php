@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="{{ route('index') }}" class="nav-link"> ArkManager </a>
+                <a href="{{ route('index') }}" class="nav-link"> ArkManager<span class="text-info">BETA</span></a>
             </li>
         </ul>
 
