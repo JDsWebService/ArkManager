@@ -31,7 +31,7 @@ Route::middleware('auth.admin')->group(function () {
 // ------------------------------------------------- //
 // All Routes In This Block Must Have User Logged In //
 // ------------------------------------------------- //
-Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
+Route::middleware(['auth', 'user.accept.conditions', 'website.restrict'])->group(function () {
 
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {

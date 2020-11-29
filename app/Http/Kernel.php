@@ -6,6 +6,7 @@ use App\Http\Middleware\CheckIfUserIsAdmin;
 use App\Http\Middleware\CheckIfUserIsInTribe;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\CheckIfUserAcceptsConditions;
+use App\Http\Middleware\WebsiteRestrictionMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'auth.admin' => CheckIfUserIsAdmin::class,
         'user.intribe' => CheckIfUserIsInTribe::class,
         'user.accept.conditions' => CheckIfUserAcceptsConditions::class,
+        'website.restrict' => WebsiteRestrictionMiddleware::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
