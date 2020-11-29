@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Route;
 use App\View\Components\SocialMediaButton as SocialMediaButtonAlias;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -50,17 +51,22 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Share the view name with all views!
          */
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             view()->share('viewName', $view->getName());
         });
 
         /**
          * Share the root view name with all views!
          */
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $data = explode('.', $view->getName());
             $rootViewName = $data[0];
             view()->share('rootViewName', $rootViewName);
+        });
+
+        view()->composer('*', function($view) {
+            $routeName = Route::currentRouteName();
+            view()->share('routeName', $routeName);
         });
 
     }

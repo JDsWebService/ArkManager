@@ -5,45 +5,27 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Tempo</h3>
+                <div class="col-sm-4 footer-contact">
+                    <h3>ArkManager.app</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <strong>Discord:</strong> <a href="https://discord.gg/HGUaYb8v">https://discord.gg/HGUaYb8v</a><br>
+                        <strong>Email:</strong> <a href="mailto:arkmanagerofficial@gmail.com">arkmanagerofficial@gmail.com</a><br>
                     </p>
                 </div>
 
-                <div class="col-lg-2 col-md-6 footer-links">
+                <div class="col-sm-4 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('terms') }}">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('privacy') }}">Privacy policy</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
+                <div class="col-sm-4 text-center">
+                    <p>Data Secured Via <a href="https://letsencrypt.org/repository/">SSL Encryption</a></p>
+                    <img src="/images/app/data-security.png" class="w-25" alt="Secure Data Via SSL Encryption">
+                    <a href="https://stripe.com/about"><img src="/images/app/secure-payments.png" class="w-50" alt="Secure Payments By Stripe"></a>
 
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
                 </div>
 
             </div>
@@ -57,19 +39,12 @@
                 &copy; {{ \Carbon\Carbon::now()->year }} Copyright <strong><span>ArkManager.app</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://twitter.com/arkmanager" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCs32-MrxbxAaSYJlqfqBD_Q" class="youtube"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 </footer><!-- End Footer -->

@@ -44167,7 +44167,10 @@ __webpack_require__(/*! venobox */ "./node_modules/venobox/venobox/venobox.min.j
 
 __webpack_require__(/*! owl.carousel2 */ "./node_modules/owl.carousel2/dist/owl.carousel.js");
 
-__webpack_require__(/*! ./app/main */ "./resources/js/app/main.js"); // Enable All Tooltips on All Pages
+__webpack_require__(/*! ./app/main */ "./resources/js/app/main.js"); // Preloader JS
+
+
+__webpack_require__(/*! ./user/loader */ "./resources/js/user/loader.js"); // Enable All Tooltips on All Pages
 
 
 $(function () {
@@ -44390,6 +44393,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/user/loader.js":
+/*!*************************************!*\
+  !*** ./resources/js/user/loader.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(window).on('load', function () {
+  $('#load_screen').fadeOut('slow', function () {
+    $(this).remove();
+
+    if ($("#messagesModal").length) {
+      $(document).ready(function () {
+        $("#messagesModal").modal('show');
+      });
+    }
+  });
+});
 
 /***/ }),
 

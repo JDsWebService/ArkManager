@@ -31,7 +31,7 @@ Route::middleware('auth.admin')->group(function () {
 // ------------------------------------------------- //
 // All Routes In This Block Must Have User Logged In //
 // ------------------------------------------------- //
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
 
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {
@@ -83,6 +83,11 @@ Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallbac
 Route::get('coming-soon', 'PagesController@comingsoon')->name('comingsoon');
 Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
 
+// Privacy and TOS Routes
+Route::get('privacy', 'PagesController@privacy')->name('privacy');
+Route::get('terms-of-service', 'PagesController@termsOfService')->name('terms');
+Route::get('accept-conditions', 'PagesController@acceptConditions')->name('accept.conditions');
+Route::post('accept-conditions', 'PagesController@acceptConditionsStore')->name('accept.conditions.store');
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');
 // Coming Soon Redirect

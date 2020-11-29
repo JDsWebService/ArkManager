@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\CheckIfUserIsAdmin;
 use App\Http\Middleware\CheckIfUserIsInTribe;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\CheckIfUserAcceptsConditions;
 
 class Kernel extends HttpKernel
 {
@@ -58,6 +59,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.admin' => CheckIfUserIsAdmin::class,
         'user.intribe' => CheckIfUserIsInTribe::class,
+        'user.accept.conditions' => CheckIfUserAcceptsConditions::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

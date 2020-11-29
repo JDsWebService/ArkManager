@@ -57,7 +57,7 @@ class LoginController extends Controller
     /**
      * Obtain the user information from discord.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function handleProviderCallback()
     {
@@ -72,7 +72,7 @@ class LoginController extends Controller
         ])->first();
 
         // If user doesn't exist
-        if($user === null) {
+        if ($user === null) {
             // Generate New User Instance
             $user = new User;
         }
@@ -89,7 +89,6 @@ class LoginController extends Controller
         $user->locale = $discordUser->user['locale'];
         $user->twofactor = $discordUser->user['mfa_enabled'];
 
-
         // Save User
         $user->save();
 
@@ -101,19 +100,25 @@ class LoginController extends Controller
 
         // dd(Auth::user());
 
-        return redirect()->route('user.dashboard');
+        // Handle BETA Access Redirect
+        Session::flash('success', 'You have been signed up for BETA access, make sure that you check your eMail on December 31st 2020 for the release information!');
+        return redirect()->route('index');
+
+        // Return to User Dashboard After BETA Access Has Been Launched!
+        // return redirect()->route('user.dashboard');
 
     }
 
     // Check to see if user is Staff
-    protected function isUserStaff($user) {
+    protected function isUserStaff($user)
+    {
 
         // Define List of Staff
         $staff = [
             'DJRedNight#3428',
         ];
         // Check if logged in user is in staff array
-        if(in_array($user->fullusername, $staff)) {
+        if (in_array($user->fullusername, $staff)) {
             // Create a session variable to be used by Blade Directive
             // Ref: AppServiceProvider.php
             $user->admin = true;
@@ -126,7 +131,8 @@ class LoginController extends Controller
 
     }
 
-    public function logout() {
+    public function logout()
+    {
         LogHandler::event('logout', 'LoginController@logout');
         Auth::logout();
         Session::flush();

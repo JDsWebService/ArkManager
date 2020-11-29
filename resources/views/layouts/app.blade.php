@@ -6,30 +6,20 @@
     </head>
 
     <body>
+        @include('partials.user.preloader')
+        @include('modals.app.messages')
 
-        @include('partials.app.navbar')
+        <!-- Navbar & Hero Post-Release Includes -->
+        <!-- include('partials.app.navbar') -->
+        <!-- include('content.app.hero-beta') -->
 
-        @include('content.app.hero')
+        <!-- Navbar & Hero Pre-Release Includes -->
+        @include('partials.app.navbar-beta')
+        @include('content.app.hero-beta')
 
         <main id="main">
 
-            @include('content.app.about')
-
-            @include('content.app.services')
-
-            @include('content.app.features')
-
-            @include('content.app.calltoaction')
-
-            @include('content.app.portfolio')
-
-            @include('content.app.pricing')
-
-            @include('content.app.faq')
-
-            @include('content.app.team')
-
-
+            @yield('content')
 
         </main><!-- End #main -->
 

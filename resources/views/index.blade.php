@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
+@section('title', 'Home')
+
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-6 text-center">
-                <p class="lead">
-                    <i class="fab fa-discord"></i>
-                </p>
-            </div>
-        </div>
-    </div>
+    @include('content.app.about')
+
+    @include('content.app.services')
+
+    @include('content.app.features')
+
+    @include('content.app.calltoaction')
+
+    @include('content.app.pricing')
 
 @endsection
