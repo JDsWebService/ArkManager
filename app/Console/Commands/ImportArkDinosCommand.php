@@ -14,7 +14,7 @@ use App\Exceptions\ArkIDParser\CardException;
 use Symfony\Component\Console\Helper\ProgressBar;
 use App\Exceptions\ArkIDParser\DinoIDNotFoundException;
 
-class GetMasterDinoInformationCommand extends Command
+class ImportArkDinosCommand extends Command
 {
     /**
      * The name and signature of the console command.

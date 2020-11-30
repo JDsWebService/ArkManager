@@ -14,7 +14,7 @@
         <!-- include('content.app.hero-beta') -->
 
         <!-- Navbar & Hero Pre-Release Includes -->
-        @include('partials.app.navbar-beta')
+        @include('partials.app.navbar')
         @include('content.app.hero-beta')
 
         <main id="main">
