@@ -23,8 +23,8 @@
 
                 <div class="col-sm-4 text-center">
                     <p>Data Secured Via <a href="https://letsencrypt.org/repository/">SSL Encryption</a></p>
-                    <img src="/images/app/data-security.png" class="w-25" alt="Secure Data Via SSL Encryption">
-                    <a href="https://stripe.com/about"><img src="/images/app/secure-payments.png" class="w-50" alt="Secure Payments By Stripe"></a>
+                    <img src="images/app/data-security.png" class="w-25" alt="Secure Data Via SSL Encryption">
+                    <a href="https://stripe.com/about"><img src="images/app/secure-payments.png" class="w-50" alt="Secure Payments By Stripe"></a>
 
                 </div>
 
