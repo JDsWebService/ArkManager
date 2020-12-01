@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>ArkManager.app - Coming Soon!</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <link rel="stylesheet" href="{{ mix('css/user.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/coming-soon/style.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/coming-soon/theme-checkbox-radio.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/coming-soon/switches.css') }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/user.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/coming-soon/style.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/coming-soon/theme-checkbox-radio.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/coming-soon/switches.css')) }}">
 </head>
 <body class="coming-soon">
 
@@ -59,8 +59,8 @@
     </div>
 </div>
 
-<script src="{{ mix('js/user.js') }}"></script>
-<script src="{{ mix('js/coming-soon/coming-soon.js') }}"></script>
+<script src="{{ asset(mix('js/user.js')) }}"></script>
+<script src="{{ asset(mix('js/coming-soon/coming-soon.js')) }}"></script>
 
 </body>
 </html>

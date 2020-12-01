@@ -42,7 +42,7 @@
 </div>
 <!-- END MAIN CONTAINER -->
 
-<script src="{{ mix('js/user.js') }}"></script>
+<script src="{{ asset(mix('js/user.js')) }}"></script>
 
 </body>
 </html>
