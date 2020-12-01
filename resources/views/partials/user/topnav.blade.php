@@ -43,9 +43,9 @@
                             </a>
                         </div>
                         <div class="dropdown-item">
-                            <a href="#">
-                                <i class="fas fa-lock"></i>
-                                Lock Screen
+                            <a href="{{ route('user.settings') }}">
+                                <i class="fas fa-cogs"></i>
+                                Settings
                             </a>
                         </div>
                         <div class="dropdown-item">

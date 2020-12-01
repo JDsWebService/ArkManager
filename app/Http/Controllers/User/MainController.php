@@ -16,4 +16,8 @@ class MainController extends Controller
     {
         return view('user.dashboard');
     }
+
+    public function settings() {
+        return view('user.settings');
+    }
 }

@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
     width: 100%;
     height: 100vh;
-    background: url("/images/app/hero-background.png") top center;
+    background: url(/images/hero-background.png?a4cb246cb34678bd613ff22b57a83f9b) top center;
     background-size: cover;
     position: relative;
 }
