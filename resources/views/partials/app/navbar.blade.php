@@ -41,7 +41,7 @@
                 {{-- User Logged In Dropdown --}}
                 @auth
                     <li class="drop-down">
-                        <a href="">
+                        <a href="javascript:void(0)">
                             @if(Auth::user()->avatar != NULL)
                                 <img src="{{ Auth::user()->avatar }}" alt="User's Avatar" class="navbar-avatar rounded-circle">
                             @endif
@@ -50,7 +50,7 @@
                         <ul>
                             <li>
                                 @staff
-                                    <a href="#">
+                                    <a href="{{ route('admin.dashboard') }}">
                                         <i class="fas fa-user-shield"></i> Admin Dashboard
                                     </a>
                                 @endstaff
