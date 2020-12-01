@@ -1,5 +1,5 @@
 // Perfect Scrollbar JS
-require('../../plugins/perfect-scrollbar/perfect-scrollbar.min');
+// require('../../plugins/perfect-scrollbar/perfect-scrollbar.min');
 import PerfectScrollbar from 'perfect-scrollbar';
 
 var App = function() {
