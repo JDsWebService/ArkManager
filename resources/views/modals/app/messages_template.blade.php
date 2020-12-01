@@ -8,7 +8,7 @@
                 </button>
                 <div class="row justify-content-center">
                     <div class="col-sm-12 text-center">
-                        <img src="/icons/alerts/{{ $type }}.png" style="width: 128px; height: 128px;" alt="{{ $type }} Alert Image">
+                        <img src="{{ asset("icons/alerts/{$type}") }}.png') }}" style="width: 128px; height: 128px;" alt="{{ $type }} Alert Image">
                         <hr>
                         @switch($type)
                             @case('success')
@@ -40,7 +40,7 @@
                             <div class="row justify-content-center">
                                 @foreach($error_content->all() as $error)
                                 <div class="col-sm-1 text-right">
-                                    <img src="/icons/alerts/danger.png" style="width: 16px; height: 16px;" alt="Error Icon">
+                                    <img src="{{ asset('icons/alerts/danger.png') }}" style="width: 16px; height: 16px;" alt="Error Icon">
                                 </div>
                                 <div class="col-sm-11 text-left">
                                     <p style="font-size: 16px;">{{ $error }}</p>
