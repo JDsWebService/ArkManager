@@ -23,9 +23,6 @@ mix.sass('resources/sass/fontawesome/fontawesome.scss', 'public/css')
     .copy('resources/sass/user/forms/theme-checkbox-radio.css', 'public/css/coming-soon')
     .copy('resources/sass/user/forms/switches.css', 'public/css/coming-soon')
     .copy('resources/js/user/pages/coming-soon/coming-soon.js', 'public/js/coming-soon')
-    .options({
-        processCssUrls: false
-    })
     .version();
 
 mix.browserSync({
