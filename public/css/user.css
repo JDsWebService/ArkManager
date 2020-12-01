@@ -1,6 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i);@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;
-
-300;400;500;700;900&display=swap);/*!
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i);@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap);/*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -13589,7 +13587,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 /* Navbar Discord Login Button*/
-
 .navbar .btn-discord {
   background-color: #7289da;
   color: #ffffff;
@@ -13605,7 +13602,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 /* Navbar User Avatar */
-
 .navbar-avatar {
   width: 24px;
   height: 24px;
@@ -13618,11 +13614,9 @@ Created By: JDsWebService
 Author Link: http://github.com/jdswebservice
 Description: Main Core File
 */
-
 /*
 Import All Files & Define Global Variables
  */
-
 /*
 Social Media Colors
 v0.0.1
@@ -13630,7 +13624,6 @@ Created By: JDsWebService
 Author Link: http://github.com/jdswebservice
 Description: Social Media Hex Values & Their Hover Equivalents
 */
-
 /*
 Social Media Colors
 v0.0.1
@@ -13639,11 +13632,8 @@ Author Link: http://github.com/jdswebservice
 Description: Mixins File
 Imported @: core.scss
 */
-
 /* Define Social Button Mixin - Default */
-
 /* Define Social Button Mixin - Black Text */
-
 /*
 Social Media Colors
 v0.0.1
@@ -13652,7 +13642,6 @@ Author Link: http://github.com/jdswebservice
 Description: CSS Button Classes
 Imported @: core.scss
 */
-
 .btn-social.btn- {
   /*--------------------------*/
   /*--------------------------*/
@@ -14464,11 +14453,9 @@ Imported @: core.scss
 /*
 Import Font Families
  */
-
 /*
 Define Main Class
  */
-
 .btn.btn-social {
   color: #ffffff;
   border-radius: 0 !important;
@@ -14486,7 +14473,6 @@ Define Main Class
 /*
 Define Font Weight Mutators
  */
-
 .social-100 {
   font-weight: 100 !important;
 }
@@ -14511,7 +14497,6 @@ Define Font Weight Mutators
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-
 .fa,
 .fas,
 .far,
@@ -14648,7 +14633,6 @@ Define Font Weight Mutators
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -14658,7 +14642,6 @@ Define Font Weight Mutators
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -14689,8 +14672,7 @@ Define Font Weight Mutators
   transform: scale(1, -1);
 }
 
-.fa-flip-both,
-.fa-flip-horizontal.fa-flip-vertical {
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   transform: scale(-1, -1);
 }
@@ -14735,7 +14717,6 @@ Define Font Weight Mutators
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
 readers do not read off random characters that represent icons */
-
 .fa-500px:before {
   content: "\F26E";
 }
@@ -20583,8 +20564,7 @@ readers do not read off random characters that represent icons */
   width: 1px;
 }
 
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
+.sr-only-focusable:active, .sr-only-focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -20597,7 +20577,6 @@ readers do not read off random characters that represent icons */
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
@@ -20616,7 +20595,6 @@ readers do not read off random characters that represent icons */
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -20635,7 +20613,6 @@ readers do not read off random characters that represent icons */
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -20717,4 +20694,3 @@ readers do not read off random characters that represent icons */
 .btn-success:hover {
   color: #000 !important;
 }
-
