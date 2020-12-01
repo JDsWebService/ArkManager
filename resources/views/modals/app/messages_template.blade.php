@@ -8,7 +8,7 @@
                 </button>
                 <div class="row justify-content-center">
                     <div class="col-sm-12 text-center">
-                        <img src="{{ asset("icons/alerts/{$type}") }}.png') }}" style="width: 128px; height: 128px;" alt="{{ $type }} Alert Image">
+                        <img src="{{ asset("icons/alerts/{$type}.png") }}" style="width: 128px; height: 128px;" alt="{{ $type }} Alert Image">
                         <hr>
                         @switch($type)
                             @case('success')

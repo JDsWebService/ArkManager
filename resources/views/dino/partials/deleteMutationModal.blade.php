@@ -29,7 +29,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <img src="{{ asset('icons/alerts/warning.png') }}" style="width: 128px; height: 128px;" alt="Danger Alert Image">
+                        <img src="icons/alerts/warning.png" style="width: 128px; height: 128px;" alt="Danger Alert Image">
                     </div>
                     <div class="col-sm-12 mt-3">
                         <p>Are you sure you want to delete the mutated dino with mutation count of: <span class="text-warning">{{ $mutatedDinoModal->mutation_count }}</span>?</p>

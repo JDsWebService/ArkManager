@@ -36,6 +36,7 @@ Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('settings', 'User\MainController@settings')->name('settings');
+        Route::post('settings', 'User\MainController@storeSettings')->name('settings.store');
         Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
     }); // End User Routes
 

@@ -25,7 +25,7 @@
                     @foreach($baseDinos as $dino)
                         <tr>
                             <td>
-                                <img src="{{ asset("{$dino->metaInfo->image_public_path}") }}" alt="{{ $dino->metaInfo->name }} Icon" class="dino-index-image">
+                                <img src="{{ $dino->metaInfo->image_public_path }}" alt="{{ $dino->metaInfo->name }} Icon" class="dino-index-image">
                             </td>
                             <td><span class="text-info">{{ $dino->metaInfo->name }}</span></td>
                             <td>{{ $dino->level }}</td>

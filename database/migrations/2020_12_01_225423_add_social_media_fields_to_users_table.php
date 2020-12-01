@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNotificationsColumnToUsersTable extends Migration
+class AddSocialMediaFieldsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddNotificationsColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('news_notifications')->default(true);
-            $table->boolean('discord_notifications')->default(true);
-            $table->boolean('internal_notifications')->default(true);
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
         });
     }
 
@@ -28,9 +27,7 @@ class AddNotificationsColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('news_notifications');
-            $table->dropColumn('discord_notifications');
-            $table->dropColumn('internal_notifications');
+            $table->dropColumn(['twitter', 'facebook']);
         });
     }
 }
