@@ -11,4 +11,4 @@
 <!-- Favicons -->
 <link href="{{ asset('favicon.ico') }}" rel="icon">
 
-<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
