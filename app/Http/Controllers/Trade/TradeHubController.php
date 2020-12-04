@@ -113,6 +113,8 @@ class TradeHubController extends Controller
      * @return mixed
      */
     public function view($uuid) {
+        $user = User::where('id', Auth::user()->id)->first();
+        dd($user);
         $trade = TradeItem::where('uuid', $uuid)->firstOrFail();
         return view('trade.view')
                 ->withTrade($trade);
