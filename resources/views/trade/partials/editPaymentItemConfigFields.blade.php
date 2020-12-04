@@ -8,20 +8,20 @@
 <!-- End Item Quantity -->
 
 <!-- Item Quality -->
-@if($trade->paymentHasQuality)
+@if($trade->paymentItem->hasQuality)
     <label for="payment_quality" class="mt-3">Does Item Have Quality?</label>
     {{ Form::select('payment_quality', $itemQualities, null, ['class' => 'form-control']) }}
 @endif
 <!-- End Item Quality -->
 
 <!-- Item Armor -->
-@if($trade->paymentHasArmor)
+@if($trade->paymentItem->hasArmor)
     <label for="payment_armor" class="mt-3">Armor</label>
     {{ Form::number('payment_armor', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
 @endif
 <!-- End Item Armor -->
 
-@if($trade->paymentHasTemperature)
+@if($trade->paymentItem->hasTemperature)
     <!-- Item Hypothermic -->
     <label for="payment_hypothermic" class="mt-3">Hypothermic Resistance</label>
     {{ Form::number('payment_hypothermic', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
@@ -34,19 +34,20 @@
 @endif
 
 <!-- Item Damage -->
-@if($trade->paymentHasDamage)
+@if($trade->paymentItem->hasDamage)
     <label for="payment_damage" class="mt-3">Damage</label>
     {{ Form::number('payment_damage', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
 @endif
 <!-- End Item Damage -->
 
 <!-- Item Durability -->
-@if($trade->paymentHasDurability)
+@if($trade->paymentItem->hasDurability)
     <label for="payment_durability" class="mt-3">Durability</label>
     {{ Form::number('payment_durability', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
 @endif
 <!-- End Item Durability -->
 
+@if($trade->paymentItem->hasBluePrint)
 <!-- Item Blueprint -->
 <div class="row form-group mt-3">
     <label for="payment_blueprint" class="col-sm-10 col-form-label">Is item a blueprint?</label>
@@ -59,3 +60,4 @@
     </div>
 </div>
 <!-- End Item Blueprint -->
+@endif
