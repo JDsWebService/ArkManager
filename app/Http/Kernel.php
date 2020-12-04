@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckIfUserIsInTribe;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\CheckIfUserAcceptsConditions;
 use App\Http\Middleware\WebsiteRestrictionMiddleware;
+use App\Http\Middleware\CheckUserNotificationSettingsMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.admin' => CheckIfUserIsAdmin::class,
         'user.intribe' => CheckIfUserIsInTribe::class,
+        'user.notifications' => CheckUserNotificationSettingsMiddleware::class,
         'user.accept.conditions' => CheckIfUserAcceptsConditions::class,
         'website.restrict' => WebsiteRestrictionMiddleware::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

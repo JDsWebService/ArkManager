@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Auth\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Tribe extends Model
@@ -23,11 +24,12 @@ class Tribe extends Model
     }
 
     /**
-     * Defines the relationship between the tribe and the Base Dino model.
+     * Gets the member count of the tribe
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return mixed
      */
-    public function baseDinos() {
-        return $this->hasMany('App\Models\Dino\BaseDino');
+    public function getMemberCountAttribute() {
+        return User::where('tribe_id', $this->id)->get()->count();
     }
+
 }

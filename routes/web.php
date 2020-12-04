@@ -31,7 +31,10 @@ Route::middleware('auth.admin')->group(function () {
 // ------------------------------------------------- //
 // All Routes In This Block Must Have User Logged In //
 // ------------------------------------------------- //
-Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!///
+/// !!!!!!!!! Added auth.admin for testing purposes on production !!!!!!!! ///
+/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ///
+Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(function () {
 
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {
@@ -79,7 +82,29 @@ Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
         Route::get('/', 'Dino\DinosController@index')->name('index');
     }); // End Dino Routes
 
+    // Trade Hub Routes
+    Route::prefix('trade')
+            ->name('trade.')
+            ->middleware(['user.notifications', 'user.intribe'])
+            ->group(function () {
 
+        Route::prefix('new')->name('new.')->group(function () {
+            Route::get('select/items', 'Trade\TradeHubController@newTrade')
+                ->name('select.items');
+            Route::get('config/items', 'Trade\TradeHubController@configItems')
+                ->name('config.items');
+            Route::post('summary', 'Trade\TradeHubController@tradeSummary')
+                ->name('summary');
+            Route::post('store', 'Trade\TradeHubController@storeNewTrade')
+                ->name('store');
+        });
+
+        Route::get('view/{uuid}', 'Trade\TradeHubController@view')
+                ->name('view');
+
+        Route::get('/', 'Trade\TradeHubController@index')->name('index');
+
+    });
 
 }); // End User Must Be Logged In Routes Group
 
@@ -90,16 +115,11 @@ Route::get('logout', 'Auth\LoginController@logout')
     ->name('logout');
 Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
 
-// Coming Soon Routes
-// Route::get('coming-soon', 'PagesController@comingsoon')->name('comingsoon');
-// Route::post('subscribe', 'PagesController@subscribe')->name('subscribe');
-
 // Privacy and TOS Routes
 Route::get('privacy', 'PagesController@privacy')->name('privacy');
 Route::get('terms-of-service', 'PagesController@termsOfService')->name('terms');
 Route::get('accept-conditions', 'PagesController@acceptConditions')->name('accept.conditions');
 Route::post('accept-conditions', 'PagesController@acceptConditionsStore')->name('accept.conditions.store');
+
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');
-// Coming Soon Redirect
-//Route::get('/', 'PagesController@comingsoon')->name('index');

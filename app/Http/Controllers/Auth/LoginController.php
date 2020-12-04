@@ -116,7 +116,9 @@ class LoginController extends Controller
         // Define List of Staff
         $staff = [
             'DJRedNight#3428',
+            'xX_Rai_Xx#9448',
         ];
+
         // Check if logged in user is in staff array
         if (in_array($user->fullusername, $staff)) {
             // Create a session variable to be used by Blade Directive

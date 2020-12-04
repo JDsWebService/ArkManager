@@ -14,6 +14,8 @@
 
             @include('components.sidebar.dino')
 
+            @include('components.sidebar.trade')
+
         </ul>
 
     </nav>

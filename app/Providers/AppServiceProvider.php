@@ -64,6 +64,9 @@ class AppServiceProvider extends ServiceProvider
             view()->share('rootViewName', $rootViewName);
         });
 
+        /**
+         * Share the root name with all views!
+         */
         view()->composer('*', function($view) {
             $routeName = Route::currentRouteName();
             view()->share('routeName', $routeName);

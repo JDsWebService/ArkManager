@@ -131,6 +131,9 @@ class TribeController extends Controller
 
         // Save The Tribe
         $tribe->save();
+
+        $user->tribe_id = $tribe->id;
+        $user->save();
     }
 
 

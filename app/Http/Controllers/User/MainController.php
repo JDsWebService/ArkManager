@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use App\Handlers\FormHandler;
 use App\Http\Controllers\Controller;
@@ -39,11 +40,11 @@ class MainController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function storeSettings(Request $request) {
-        $user = Auth::user();
+        $user = User::where('id', Auth::user()->id)->first();
         $this->validate($request, [
             'news_notifications' => 'required|in:on,off',
-            'discord_notifications' => 'required|in:on,off',
-            'internal_notifications' => 'required|in:on,off',
+            'discord_notifications' => 'nullable|in:on,off',
+            'internal_notifications' => 'nullable|in:on,off',
             'twitter' => 'nullable|string',
             'facebook' => 'nullable|url',
             'email' => 'required|email'

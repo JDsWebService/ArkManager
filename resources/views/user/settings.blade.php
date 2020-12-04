@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{ Form::open(['route' => 'user.settings.store', 'method' => 'POST']) }}
+    {{ Form::model($user, ['route' => 'user.settings.store', 'method' => 'POST']) }}
 
         <div class="row justify-content-center section">
             <div class="col-sm-12">

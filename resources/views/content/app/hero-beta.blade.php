@@ -8,7 +8,7 @@
             <a href="{{ route('login.discord') }}" class="btn-get-started">Login Sign Up For BETA Access</a>
         @endguest
         @auth
-            <a href="#" class="btn-get-started">BETA Access Approved, We'll Let You Know When We Launch!</a>
+            <a href="https://discord.gg/qPgdqfFTgm" class="btn-get-started">BETA Access Approved! Come join our Discord! Click here!</a>
         @endauth
     </div>
 </section>
