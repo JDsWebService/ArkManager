@@ -9,7 +9,6 @@
             <th scope="col">Blueprint</th>
             <th scope="col">Payment Item</th>
             <th scope="col">Accepts Barters</th>
-            <th scope="col">Offer Expires</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -63,7 +62,6 @@
                         <span class="text-danger">False</span>
                     @endif
                 </td>
-                <td>{{ $trade->timeRemaining }}</td>
                 <td>
                     {{ Form::open(['route' => ['trade.renew', $trade->uuid], 'method' => 'PUT']) }}
                         <a href="{{ route('trade.edit.trade', $trade->uuid) }}" class="btn btn-info btn-sm">
