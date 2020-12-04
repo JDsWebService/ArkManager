@@ -43,7 +43,7 @@
             <hr>
             <div class="row justify-content-center mt-3">
                 <div class="col-sm-12">
-                    <p class="text-muted font-italic">Note: All values for stats should be their true values and not their stat levels. You can find this information on the dino's inventory screen. All values are optional except for the mutation type that you are tracking.</p>
+                    <p class="text-muted font-italic">Note: All values for stats should be their true values and not their stat levels. You can find this information on the dino's inventory screen. <span class="text-info font-italic">All values are optional except for the mutation type that you are tracking.</span></p>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
