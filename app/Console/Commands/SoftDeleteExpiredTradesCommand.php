@@ -44,8 +44,8 @@ class SoftDeleteExpiredTradesCommand extends Command
             $this->line("Trade ID: {$trade->id}");
             $duration = $trade->duration;
             $now = Carbon::now();
-            $end = Carbon::now()->addSeconds($duration);
-            if($now->lessThanOrEqualTo($end)) {
+            $end = Carbon::parse($trade->created_at)->addSeconds($duration);
+            if($now->greaterThanOrEqualTo($end)) {
                 $trade->deleted_at = Carbon::now();
                 $trade->save();
                 $this->info('Trade has been archived!');
