@@ -9,10 +9,6 @@
             <div class="col-sm-12">
                 <h4>Trade Owner Actions</h4>
                 <hr>
-                <p class="lead">
-                    <span class="text-success">User ID: {{ Auth::user()->id }}</span>
-                    <span class="text-success">Trade User ID: {{ $trade->user_id }}</span>
-                </p>
                 <div class="row justify-content-center">
                     <div class="col-sm-3">
                         <a href="{{ route('trade.edit.trade', $trade->uuid) }}" class="btn btn-info btn-block btn-sm">
