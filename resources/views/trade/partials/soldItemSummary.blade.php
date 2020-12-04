@@ -94,7 +94,7 @@
                 <tr>
                     <th class="text-white">Is Item A Blueprint?
                     <td class="text-center">
-                        @if($request->sold_blueprint == 'on')
+                        @if($request->sold_blueprint == '1')
                             <span class="text-success">True</span>
                         @else
                             <span class="text-danger">False</span>

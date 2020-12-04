@@ -99,8 +99,26 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
                 ->name('store');
         });
 
+        Route::prefix('edit')->name('edit.')->group(function () {
+            Route::get('{uuid}', 'Trade\TradeHubController@editTrade')
+                ->name('trade');
+            Route::post('summary/{uuid}', 'Trade\TradeHubController@editTradeSummary')
+                ->name('summary');
+            Route::post('store/{uuid}', 'Trade\TradeHubController@storeEditTrade')
+                ->name('store');
+        });
+
+        Route::prefix('user')->name('user.')->group(function () {
+            Route::get('/', 'Trade\TradeHubController@userIndex')
+                ->name('index');
+        });
+
         Route::get('view/{uuid}', 'Trade\TradeHubController@view')
                 ->name('view');
+        Route::put('renew/{uuid}', 'Trade\TradeHubController@renew')
+                ->name('renew');
+        Route::delete('delete/{uuid}', 'Trade\TradeHubController@delete')
+                ->name('delete');
 
         Route::get('/', 'Trade\TradeHubController@index')->name('index');
 

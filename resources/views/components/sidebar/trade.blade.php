@@ -19,6 +19,12 @@
             </a>
         </li>
 
+        <li class="{{ strpos($routeName, 'trade.user') !== false ? 'active' : '' }}">
+            <a href="{{ route('trade.user.index') }}">
+                <i class="far fa-eye"></i> Your Trades
+            </a>
+        </li>
+
         <li class="{{ $routeName == 'trade.index' ? 'active' : '' }}">
             <a href="{{ route('trade.index') }}">
                 <i class="far fa-eye"></i> View All Trades

@@ -126,4 +126,18 @@ class TradeHandler
         }
         return $trade;
     }
+
+    /**
+     * Stores an update on a trade instance
+     *
+     * @param Request $request
+     * @param $trade
+     * @return TradeItem
+     */
+    public static function storeUpdateTrade(Request $request, $trade)
+    {
+        $trade = self::assignRequestToTradeItemInstance($trade, $request);
+        $trade->save();
+        return $trade;
+    }
 }

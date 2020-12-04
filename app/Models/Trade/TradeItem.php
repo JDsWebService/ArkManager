@@ -4,6 +4,7 @@ namespace App\Models\Trade;
 
 use Carbon\Carbon;
 use App\Models\Ark\ArkItemMetaInfo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class TradeItem extends Model
@@ -188,6 +189,30 @@ class TradeItem extends Model
      */
     public function getPaymentHasBlueprintAttribute() {
         if($this->payment_blueprint) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if the authenticated user is also the trade owner
+     *
+     * @return bool
+     */
+    public function getIsUserTradeOwnerAttribute() {
+        if(Auth::user()->id = $this->user_id) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if the trade listing is expired/archived
+     *
+     * @return bool
+     */
+    public function getIsExpiredAttribute() {
+        if($this->deleted_at != null) {
             return true;
         }
         return false;
