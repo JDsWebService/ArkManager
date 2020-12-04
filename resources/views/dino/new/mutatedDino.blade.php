@@ -31,73 +31,73 @@
                 @if($baseDino->health != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="health">Health</label>
-                        {{ Form::number('health', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->health})", 'step' => ".1"]) }}
+                        {{ Form::number('health', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->health})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->stamina != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="stamina">Stamina</label>
-                        {{ Form::number('stamina', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->stamina})", 'step' => ".1"]) }}
+                        {{ Form::number('stamina', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->stamina})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->oxygen != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="oxygen">Oxygen</label>
-                        {{ Form::number('oxygen', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->oxygen})", 'step' => ".1"]) }}
+                        {{ Form::number('oxygen', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->oxygen})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->food != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="food">Food</label>
-                        {{ Form::number('food', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->food})", 'step' => ".1"]) }}
+                        {{ Form::number('food', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->food})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->weight != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="weight">Weight</label>
-                        {{ Form::number('weight', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->weight})", 'step' => ".1"]) }}
+                        {{ Form::number('weight', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->weight})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->damage != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="damage">Melee Damage</label>
-                        {{ Form::number('damage', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->damage})", 'step' => ".1"]) }}
+                        {{ Form::number('damage', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->damage})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->movement != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="movement">Movement Speed</label>
-                        {{ Form::number('movement', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->movement})", 'step' => ".1"]) }}
+                        {{ Form::number('movement', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->movement})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->crafting != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="crafting">Crafting Skill</label>
-                        {{ Form::number('crafting', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->crafting})", 'step' => ".1"]) }}
+                        {{ Form::number('crafting', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->crafting})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->torpidity != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="torpidity">Torpidity</label>
-                        {{ Form::number('torpidity', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->torpidity})", 'step' => ".1"]) }}
+                        {{ Form::number('torpidity', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->torpidity})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->water != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="water">Water</label>
-                        {{ Form::number('water', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->water})", 'step' => ".1"]) }}
+                        {{ Form::number('water', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->water})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->temperature != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="temperature">Temperature</label>
-                        {{ Form::number('temperature', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->temperature})", 'step' => ".1"]) }}
+                        {{ Form::number('temperature', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->temperature})", 'step' => ".1"]) }}
                     </div>
                 @endif
                 @if($baseDino->fortitude != 0)
                     <div class="col-sm-3 mt-3">
                         <label for="fortitude">Fortitude</label>
-                        {{ Form::number('fortitude', null, ['class' => 'form-control', 'placeholder' => "Previous Dino Stat Value ({$newestDino->fortitude})", 'step' => ".1"]) }}
+                        {{ Form::number('fortitude', null, ['class' => 'form-control', 'placeholder' => "Previous Value:  ({$newestDino->fortitude})", 'step' => ".1"]) }}
                     </div>
                 @endif
             </div>
