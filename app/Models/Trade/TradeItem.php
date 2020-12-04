@@ -200,10 +200,7 @@ class TradeItem extends Model
      * @return bool
      */
     public function getIsUserTradeOwnerAttribute() {
-        $user = Auth::user();
-        dd($this->user_id);
-        if($user->id = $this->user_id) {
-            dd("User is equal to trade user");
+        if(Auth::user()->id == $this->user_id) {
             return true;
         }
         return false;
