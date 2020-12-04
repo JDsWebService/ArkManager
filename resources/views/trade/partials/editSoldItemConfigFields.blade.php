@@ -43,7 +43,7 @@
 <!-- Item Durability -->
 @if($trade->soldItem->hasDurability)
     <label for="sold_durability" class="mt-3">Durability</label>
-    {{ Form::number('sold_durability', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
+    {{ Form::number('sold_durability', null, ['class' => 'form-control', 'step' => '1', 'placeholder' => '1']) }}
 @endif
 <!-- End Item Durability -->
 

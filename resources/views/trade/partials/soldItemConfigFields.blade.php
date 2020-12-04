@@ -49,7 +49,7 @@
 <!-- Item Durability -->
 @if($item->hasDurability)
     <label for="sold_durability" class="mt-3">Durability</label>
-    <input type="number" step=".1" class="form-control" name="sold_durability" placeholder="1">
+    <input type="number" step="1" class="form-control" name="sold_durability" placeholder="1">
 @endif
 <!-- End Item Durability -->
 

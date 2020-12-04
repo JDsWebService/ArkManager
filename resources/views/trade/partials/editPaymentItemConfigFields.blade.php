@@ -43,7 +43,7 @@
 <!-- Item Durability -->
 @if($trade->paymentItem->hasDurability)
     <label for="payment_durability" class="mt-3">Durability</label>
-    {{ Form::number('payment_durability', null, ['class' => 'form-control', 'step' => '.1', 'placeholder' => '1']) }}
+    {{ Form::number('payment_durability', null, ['class' => 'form-control', 'step' => '1', 'placeholder' => '1']) }}
 @endif
 <!-- End Item Durability -->
 
