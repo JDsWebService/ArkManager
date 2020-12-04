@@ -48,7 +48,7 @@
 
     <div class="row justify-content-center">
         <div class="col-sm-4">
-            <a href="{{ route('user.dashboard') }}" class="btn btn-block btn-warning">
+            <a href="{{ route('user.dashboard') }}" class="btn btn-block btn-danger">
                 <i class="far fa-window-close"></i> Cancel Trade
             </a>
         </div>
