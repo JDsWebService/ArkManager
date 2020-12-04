@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Trade;
 
 use Carbon\Carbon;
+use App\Models\Auth\User;
 use App\Handlers\FormHandler;
 use App\Handlers\ItemHandler;
 use App\Handlers\TradeHandler;
