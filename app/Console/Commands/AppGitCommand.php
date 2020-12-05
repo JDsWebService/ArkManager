@@ -48,10 +48,13 @@ class AppGitCommand extends Command
             $message .= " -m \"{$commitMessage}\"";
         }
         exec("git commit " . $message);
-        $this->alert("Pushing to origin");
+        $pushMessage = "Pushing to Origin.";
+        if($production) {
+            $pushMessage .= " Pushing to Production";
+        }
+        $this->alert($pushMessage);
         exec("git push origin master");
         if($production) {
-            $this->alert("Pushing to production...");
             exec("git push production master");
         }
         $this->info("Command has been executed successfully!");

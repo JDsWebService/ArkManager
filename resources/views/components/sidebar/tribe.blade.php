@@ -11,12 +11,12 @@
     <ul class="collapse submenu list-unstyled {{ strpos($routeName, 'tribe') !== false ? 'show' : ""}}" id="tribemenu" data-parent="#userSidebar">
         @if($user->tribe != null)
             <li class="{{ $routeName == 'tribe.edit' ? 'active' : '' }}">
-                <a href="{{ route('tribe.edit', Auth::user()->tribe->uuid) }}">
+                <a href="{{ route('tribe.edit', $user->tribe->uuid) }}">
                     <i class="far fa-edit"></i> Edit Your Tribe
                 </a>
             </li>
             <li class="{{ $routeName == 'tribe.user.add' ? 'active' : '' }}">
-                <a href="{{ route('tribe.user.add', Auth::user()->tribe->uuid) }}">
+                <a href="{{ route('tribe.user.add', $user->tribe->uuid) }}">
                     <i class="fas fa-user-plus"></i> Add Tribemate
                 </a>
             </li>
