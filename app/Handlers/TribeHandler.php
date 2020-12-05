@@ -165,6 +165,9 @@ class TribeHandler
         }
         $tribe = Tribe::where('uuid', $uuid)->firstOrFail();
         if($tribe->isUserTribeOwner) {
+            if($receivingUser->tribe_id == $tribe->id) {
+                throw new TribeHandlerException("Can not add this user to your tribe. They are already in your tribe.");
+            }
             $invite = self::saveInviteToDatabase($tribe, $receivingUser, $sendingUser);
             if($invite) {
                 $receivingUser->notify(new UserAddedToTribe($sendingUser, $tribe, $invite->token));
@@ -220,6 +223,8 @@ class TribeHandler
         $user->save();
 
         self::updateUserDinosAfterInviteAccept($user);
+
+        $invite->delete();
 
         return true;
     }

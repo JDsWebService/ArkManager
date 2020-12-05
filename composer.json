@@ -21,7 +21,8 @@
         "socialiteproviders/discord": "^2.0",
         "symfony/css-selector": "^5.1",
         "symfony/dom-crawler": "^5.1",
-        "symfony/yaml": "^5.1"
+        "symfony/yaml": "^5.1",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
