@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -27,8 +28,8 @@ class CreateArkOfficialServersTable extends Migration
             $table->string('status')->default('offline');
             $table->boolean('crossplay')->default(false);
             $table->string('country')->nullable();
-            $table->timestamp('bm_created_at');
-            $table->timestamp('bm_updated_at');
+            $table->timestamp('bm_created_at')->default(Carbon::now());
+            $table->timestamp('bm_updated_at')->default(Carbon::now());
             $table->timestamps();
         });
     }
