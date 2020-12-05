@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models\Tribe;
 
 use App\Models\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Tribe extends Model
@@ -30,6 +31,16 @@ class Tribe extends Model
      */
     public function getMemberCountAttribute() {
         return User::where('tribe_id', $this->id)->get()->count();
+    }
+
+    /**
+     * Returns a value based on if the authenticated user is
+     * the tribe's owner.
+     *
+     * @return bool
+     */
+    public function getIsUserTribeOwnerAttribute() {
+        return Auth::user()->id == $this->user_id;
     }
 
 }

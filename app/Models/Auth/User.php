@@ -4,7 +4,6 @@ namespace App\Models\Auth;
 
 use Carbon\Carbon;
 use App\Models\Trade\TradeItem;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -52,7 +51,7 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function tribe() {
-        return $this->hasOne('App\Models\User\Tribe');
+        return $this->hasOne('App\Models\Tribe\Tribe');
     }
 
     /**

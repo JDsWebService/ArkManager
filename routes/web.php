@@ -45,10 +45,23 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
 
     // Tribe Routes
     Route::prefix('tribe')->name('tribe.')->group(function () {
-        Route::get('create', 'User\Tribe\TribeController@create')->name('create');
-        Route::post('store', 'User\Tribe\TribeController@store')->name('store');
-        Route::get('edit/{slug}', 'User\Tribe\TribeController@edit')->name('edit');
-        Route::put('update', 'User\Tribe\TribeController@update')->name('update');
+        Route::get('create', 'Tribe\TribeController@create')
+                ->name('create');
+        Route::post('store', 'Tribe\TribeController@store')
+                ->name('store');
+        Route::get('edit/{uuid}', 'Tribe\TribeController@edit')
+                ->name('edit');
+        Route::put('update/{uuid}', 'Tribe\TribeController@update')
+                ->name('update');
+
+        Route::prefix('user')->name('user.')->group(function () {
+            Route::get('add/{uuid}', 'Tribe\TribeController@addUser')
+                ->name('add');
+            Route::post('sendEmail/{uuid}', 'Tribe\TribeController@sendTribeInviteEmail')
+                ->name('sendEmail');
+            Route::get('acceptInvite/{token}', 'Tribe\TribeController@acceptInvite')
+                ->name('acceptInvite');
+        });
     }); // End Tribe Routes
 
     // Dino Routes
