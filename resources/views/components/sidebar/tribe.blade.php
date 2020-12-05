@@ -10,7 +10,7 @@
     </a>
     <ul class="collapse submenu list-unstyled {{ strpos($routeName, 'tribe') !== false ? 'show' : ""}}" id="tribemenu" data-parent="#userSidebar">
         @if(Auth::user()->tribe_id != null)
-            @if(Auth::user()->id == Auth::user()->tribe->user_id)
+            @if(Auth::user()->tribe->isUserTribeOwner)
                 <li class="{{ $routeName == 'tribe.edit' ? 'active' : '' }}">
                     <a href="{{ route('tribe.edit', $user->tribe->uuid) }}">
                         <i class="far fa-edit"></i> Edit Your Tribe
