@@ -48,10 +48,10 @@ class User extends Authenticatable
     /**
      * Define the relationship between the user model and the tribe model
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function tribe() {
-        return $this->hasOne('App\Models\Tribe\Tribe');
+        return $this->belongsTo('App\Models\Tribe\Tribe', 'tribe_id');
     }
 
     /**
