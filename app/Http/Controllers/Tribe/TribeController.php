@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tribe;
 use App\Handlers\LogHandler;
 use App\Handlers\FormHandler;
 use App\Handlers\TribeHandler;
+use App\Handlers\ServerHandler;
 use App\Rules\ReceivingUserRule;
 use App\Exceptions\TribeException;
 use App\Http\Controllers\Controller;
@@ -12,6 +13,7 @@ use App\Models\Tribe\Tribe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Ark\ArkOfficialServer;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
@@ -26,13 +28,14 @@ class TribeController extends Controller
      */
     public function create() {
         $user = Auth::user();
-
+        $servers = ServerHandler::getOfficialServers();
         if($user->tribe != null) {
             Session::flash('warning', 'You have already created a tribe, consider editing it instead.');
             return redirect()->route('tribe.edit', $user->tribe->uuid);
         }
 
-        return view('tribe.create');
+        return view('tribe.create')
+                ->withServers($servers);
     }
 
     /**

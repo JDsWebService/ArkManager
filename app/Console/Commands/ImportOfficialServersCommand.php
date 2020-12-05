@@ -88,10 +88,13 @@ class ImportOfficialServersCommand extends Command
         foreach($this->servers as $server) {
             $this->line("Working on server {$this->serverCount}/{$this->serverTotal}");
             $server = $server->attributes;
-            $arkServer = new ArkOfficialServer;
+            $arkServer = ArkOfficialServer::where('battlemetricsID', $server->id)->first();
+            if($arkServer == null) {
+                $arkServer = new ArkOfficialServer;
+            }
             $arkServer->battlemetricsID = $server->id;
             $arkServer->steamID = $server->details->serverSteamId;
-            $arkServer->name = $server->name;
+            $arkServer->name = $this->parseServerName($server->name);
             $arkServer->ipAddress = $server->ip;
             $arkServer->port = $server->port;
             $arkServer->queryPort = $server->portQuery;
@@ -104,7 +107,7 @@ class ImportOfficialServersCommand extends Command
             $arkServer->bm_created_at = Carbon::parse($server->createdAt)->format('Y-m-d H:i:s');
             $arkServer->bm_updated_at = Carbon::parse($server->updatedAt)->format('Y-m-d H:i:s');
             $arkServer->save();
-            $this->info("{$server->name} has been added to the database successfully!");
+            $this->info("{$arkServer->name} has been added to the database successfully!");
             $this->serverCount++;
         }
         $this->info("Command complete!");
@@ -133,5 +136,29 @@ class ImportOfficialServersCommand extends Command
             $this->page++;
             $this->getServersData($links->next);
         }
+    }
+
+    /**
+     * Parses the server name for easier reading
+     *
+     * @param $name
+     * @return string|string[]
+     */
+    private function parseServerName($name)
+    {
+        $regex = [];
+        $result = '';
+        // Strip the version number from the end
+        preg_match('/(.*( - \(.*\)))/', $name, $regex);
+        $result = str_replace($regex[2], '', $name);
+        // Replace all hyphens with spaces
+        $result = str_replace('-', ' ', $result);
+        // Reformat how the Beginners Server is displayed
+        $result = str_replace('*Beginner*', '(Beginner) - ', $result);
+        // Reformat how the server number is displayed
+        preg_match('/(\d{1,})/', $result, $regex);
+        $result = str_replace($regex[0], " #{$regex[0]}", $result);
+        // Return the result
+        return $result;
     }
 }
