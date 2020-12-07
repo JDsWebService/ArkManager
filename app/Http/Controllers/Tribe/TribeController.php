@@ -46,6 +46,7 @@ class TribeController extends Controller
     public function edit($uuid) {
         $user = Auth::user();
         $tribe = Tribe::where('uuid', $uuid)->first();
+        $servers = ServerHandler::getOfficialServers();
         // If no tribe exists
         if(!$tribe) {
             Session::flash('warning', 'You have to create a tribe before editing it!');
@@ -58,7 +59,8 @@ class TribeController extends Controller
         }
 
         return view('tribe.edit')
-                    ->withTribe($tribe);
+                    ->withTribe($tribe)
+                    ->withServers($servers);
     }
 
     /**
@@ -110,10 +112,9 @@ class TribeController extends Controller
         }
 
         $tribe = TribeHandler::updateTribe($request, $tribe);
-
         if(!$tribe) {
             Session::flash('danger', 'Something went wrong while trying to save the tribe. Please contact a staff member if this happens again.');
-            return redirect()->route('tribe.create');
+            return redirect()->route('tribe.edit', $tribe->uuid);
         }
 
         // Flash Session Message and Return

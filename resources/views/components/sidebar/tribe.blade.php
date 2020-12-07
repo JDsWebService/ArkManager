@@ -21,13 +21,12 @@
                         <i class="fas fa-user-plus"></i> Add Tribemate
                     </a>
                 </li>
-            @else
-                <li class="{{ $routeName == 'tribe.view' ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="far fa-eye"></i> View Tribe
-                    </a>
-                </li>
             @endif
+            <li class="{{ $routeName == 'tribe.view' ? 'active' : '' }}">
+                <a href="#">
+                    <i class="far fa-eye"></i> View Tribe
+                </a>
+            </li>
         @else
             <li class="{{ $routeName == 'tribe.create' ? 'active' : '' }}">
                 <a href="{{ route('tribe.create') }}"><i class="far fa-plus-square"></i> Create Tribe</a>

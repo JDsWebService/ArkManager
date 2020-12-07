@@ -18,8 +18,8 @@
         z-index: 10;
     }
 </style>
-<label for="fileUpload" class="mt-3">File Upload</label>
+<label for="{{ $name }}" class="mt-3">{{ $label }}</label>
 <div class="form-group">
-    <input type="file" id="fileUpload" name="fileUpload">
+    <input type="file" id="fileUpload" name="{{ $name }}">
     <p id="fileUploadPTag">Drag your files here or click in this area.</p>
 </div>

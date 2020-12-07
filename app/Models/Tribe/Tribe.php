@@ -25,6 +25,15 @@ class Tribe extends Model
     }
 
     /**
+     * Defines the Official Ark Home Server relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function homeServer() {
+        return $this->belongsTo('App\Models\Ark\ArkOfficialServer', 'home_server_id');
+    }
+
+    /**
      * Gets the member count of the tribe
      *
      * @return mixed

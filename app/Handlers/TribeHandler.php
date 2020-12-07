@@ -9,15 +9,32 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Tribe\Invite;
 use App\Models\Dino\UserDino;
+use Illuminate\Http\UploadedFile;
 use App\Exceptions\TribeException;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 use App\Notifications\UserAddedToTribe;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Exceptions\TribeHandlerException;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 class TribeHandler
 {
+    /**
+     * Placeholder image URL
+     *
+     * @var string
+     */
+    private static $placeholderImage;
+
+    /**
+     * TribeHandler constructor.
+     */
+    static function init() {
+        self::$placeholderImage = 'https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found';
+    }
+
     /**
      * Returns the tribe ID of the user
      *
@@ -51,7 +68,7 @@ class TribeHandler
     public static function updateTribe(Request $request, $tribe)
     {
         $user = Auth::user();
-        if($user->id != $tribe->user_id) {
+        if(!$user->tribe->isUserTribeOwner) {
             return false;
         }
         $tribe = self::handleTribeRequestFields($request, $tribe);
@@ -81,7 +98,8 @@ class TribeHandler
     {
         return [
             'name' => 'required|string',
-            'founded_on' => 'required|date'
+            'founded_on' => 'required|date',
+            'home_server_id' => 'required|integer',
         ];
     }
 
@@ -95,6 +113,7 @@ class TribeHandler
         return [
             'name' => 'Tribe Name',
             'founded_on' => 'Tribe Founded On',
+            'home_server_id' => 'Home Server',
         ];
     }
 
@@ -109,18 +128,27 @@ class TribeHandler
     {
         // Grab the user
         $user = Auth::user();
-        // Handle the tribe instance assignments form the request
+
+        ///////////////////////////////////
+        // Handle all the request fields //
+        ///////////////////////////////////
+
+        // Tribe
         $tribe->name = $request->name;
         $tribe->founded_on = $request->founded_on;
         $tribe->user_id = $user->id;
-        // Handle the UUID
         if($tribe->uuid == null) {
             $tribe->uuid = Str::uuid()->toString();
         }
-        // Save The Tribe
-        $tribeSave = $tribe->save();
-        // Handle the User
+        $tribe->home_server_id = intval($request->home_server_id);
+        // User
         $user->tribe_id = $tribe->id;
+
+        // Save the profile image if it exists
+        $tribe = self::saveTribeProfileImage($request, $tribe);
+
+        // Save the tribe and the user
+        $tribeSave = $tribe->save();
         $userSave = $user->save();
         if($userSave && $tribeSave) {
             return true;
@@ -247,4 +275,38 @@ class TribeHandler
         return true;
     }
 
+    private static function saveTribeProfileImage(Request $request, Tribe $tribe)
+    {
+        $imageData = [
+            'image_public_path' => self::$placeholderImage,
+            'image_storage_path' => null,
+            'image_filename' => null,
+            'image_extension' => '.png',
+        ];
+
+        if($request->hasFile('tribeProfileImage')) {
+            $imageData['image_filename'] = $tribe->uuid . $imageData['image_extension'];
+            $imageData['image_storage_path'] = '/public/tribe/images/profile/' . $imageData['image_filename'];
+            $imageData['image_public_path'] = str_replace('public', 'storage', $imageData['image_storage_path']);
+
+            $image = Image::make($request->file('tribeProfileImage')->getRealPath());
+            $image->resize(128, 128, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->stream();
+            Storage::put($imageData['image_storage_path'], $image);
+        }
+
+        if($tribe->image_public_path != null) {
+            return $tribe;
+        }
+
+        $tribe->image_public_path = $imageData['image_public_path'];
+        $tribe->image_storage_path = $imageData['image_storage_path'];
+        $tribe->image_filename = $imageData['image_filename'];
+        $tribe->image_extension = $imageData['image_extension'];
+        return $tribe;
+    }
+
 }
+TribeHandler::init();
