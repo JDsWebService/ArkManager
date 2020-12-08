@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/fontawesome/fontawesome.scss', 'public/css')
+mix
     // App Layout
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js')

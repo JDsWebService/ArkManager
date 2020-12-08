@@ -14,4 +14,6 @@
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
+<script src="https://kit.fontawesome.com/0d9c5a4db2.js" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="{{ asset(mix('css/user.css')) }}">

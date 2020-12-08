@@ -11,4 +11,6 @@
 <!-- Favicons -->
 <link href="{{ asset('favicon.ico') }}" rel="icon">
 
+<script src="https://kit.fontawesome.com/0d9c5a4db2.js" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">

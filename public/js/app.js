@@ -44428,17 +44428,6 @@ $(window).on('load', function () {
 
 /***/ }),
 
-/***/ "./resources/sass/fontawesome/fontawesome.scss":
-/*!*****************************************************!*\
-  !*** ./resources/sass/fontawesome/fontawesome.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/user.scss":
 /*!**********************************!*\
   !*** ./resources/sass/user.scss ***!
@@ -44451,14 +44440,13 @@ $(window).on('load', function () {
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/fontawesome/fontawesome.scss ./resources/sass/app.scss ./resources/sass/user.scss ***!
-  \**************************************************************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/user.scss ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! F:\Sites\arkmanager\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\Sites\arkmanager\resources\sass\fontawesome\fontawesome.scss */"./resources/sass/fontawesome/fontawesome.scss");
 __webpack_require__(/*! F:\Sites\arkmanager\resources\sass\app.scss */"./resources/sass/app.scss");
 module.exports = __webpack_require__(/*! F:\Sites\arkmanager\resources\sass\user.scss */"./resources/sass/user.scss");
 

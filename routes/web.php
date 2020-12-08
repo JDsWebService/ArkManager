@@ -13,16 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// https://github.com/laravel/framework/issues/18613#issuecomment-341991605
+$url = config('app.url');
+URL::forceRootUrl($url);
+
 // ------------------------------------------------------ //
 // All routes in the block must be authorized as an admin
 // ------------------------------------------------------ //
-Route::middleware('auth.admin')->group(function () {
+Route::prefix('admin')
+        ->name('admin.')
+        ->middleware('auth.admin')
+        ->group(function () {
 
-    Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', 'Admin\AdminController@dashboard')
+            ->name('dashboard');
 
-    Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
-
+    // Admin Changelog Routes
+    Route::prefix('changelog')->name('changelog.')->group(function () {
+        Route::get('add', 'Admin\ChangelogController@add')
+            ->name('add');
+        Route::post('store', 'Admin\ChangelogController@store')
+            ->name('store');
+        Route::get('edit/{id}', 'Admin\ChangelogController@edit')
+            ->name('edit');
+        Route::put('update/{id}', 'Admin\ChangelogController@update')
+            ->name('update');
+        Route::delete('delete/{id}', 'Admin\ChangelogController@delete')
+            ->name('delete');
+        Route::get('/', 'Admin\ChangeLogController@index')
+            ->name('index');
     });
+
     // Testing Route for debugging purposes.
     // Route::get('test', 'TestingController@test3')->name('test');
 });

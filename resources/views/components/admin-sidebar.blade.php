@@ -4,10 +4,13 @@
     <nav id="sidebar">
         <div class="shadow-bottom"></div>
 
-        <ul class="list-unstyled menu-categories" id="userSidebar">
+        <ul class="list-unstyled menu-categories" id="adminSidebar">
 
             @include('components.sidebar.adminDashboard')
+
             @include('components.sidebar.dashboard')
+
+            @include('components.sidebar.adminChangelog')
 
         </ul>
 
