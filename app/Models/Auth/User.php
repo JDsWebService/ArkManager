@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Tribe\Tribe', 'tribe_id');
     }
 
+    public function dinos() {
+        return $this->hasMany('App\Models\Dino\UserDino');
+    }
+
     /**
      * Get the member since attribute
      * @return string
