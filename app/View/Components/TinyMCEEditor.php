@@ -28,17 +28,35 @@ class TinyMCEEditor extends Component
     public $label;
 
     /**
+     * Margin at the top
+     *
+     * @var bool
+     */
+    public $margin;
+
+    /**
+     * Model Value if set
+     *
+     * @var bool|string
+     */
+    public $model;
+
+    /**
      * Create a new component instance.
      *
+     * @param string $id CSS ID Attribute
+     * @param bool $margin Margin at top
      * @param string $placeholder Placeholder Text
      * @param string $label Label Text above Textarea
-     * @param string $id CSS ID Attribute
+     * @param bool|string $model
      */
-    public function __construct(string $id, string $placeholder = "Write Your Next Great Story", string $label = "Description")
+    public function __construct(string $id, bool $margin = false, string $placeholder = "Write Your Next Great Story", string $label = "Description", $model = false)
     {
         $this->id = $id;
         $this->placeholder = $placeholder;
         $this->label = $label;
+        $this->margin = $margin;
+        $this->model = $model;
     }
 
     /**

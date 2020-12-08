@@ -9,7 +9,7 @@
             {{ Form::open(['route' => 'tribe.store', 'method' => 'POST', 'files' => true]) }}
 
             <div class="row justify-content-center">
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <label for="name">Tribe Name</label>
                     {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Tribe Name']) }}
 
@@ -20,12 +20,19 @@
                     {{ Form::select('home_server_id', $servers, null, ['class' => 'form-control']) }}
 
                     <x-file-upload-input label="Tribe Profile Image" name="tribeProfileImage"/>
-
-                    <button class="btn btn-success btn-block mt-3" value="submit">
-                        <i class="far fa-plus-square"></i> Create New Tribe
-                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <x-tiny-m-c-e-editor placeholder="Tribe Description" id="description" label="Tribe Description"/>
                 </div>
 
+            </div> <!-- ./row-->
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <button class="btn btn-success btn-block mt-3" value="submit">
+                        <i class="fas fa-save"></i> Save Tribe
+                    </button>
+                </div>
             </div>
 
             {{ Form::close() }}

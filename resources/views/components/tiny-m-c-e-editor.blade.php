@@ -1,6 +1,8 @@
-<div class="mt-3">
+<div @if($margin)class="mt-3"@endif>
     <label for="{{ $id }}">{{ $label }}</label>
-    <textarea id="{{ $id }}" name="{{ $id }}" placeholder="{{ $placeholder }}"></textarea>
+    <textarea id="{{ $id }}" name="{{ $id }}" placeholder="{{ $placeholder }}">
+        @if($model){{ $model }}@endif
+    </textarea>
 </div>
 <script>
     tinymce.init({

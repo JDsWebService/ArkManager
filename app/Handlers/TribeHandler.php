@@ -100,6 +100,7 @@ class TribeHandler
             'name' => 'required|string',
             'founded_on' => 'required|date',
             'home_server_id' => 'required|integer',
+            'description' => 'nullable|string|max:5000',
         ];
     }
 
@@ -114,6 +115,7 @@ class TribeHandler
             'name' => 'Tribe Name',
             'founded_on' => 'Tribe Founded On',
             'home_server_id' => 'Home Server',
+            'description' => 'Tribe Description',
         ];
     }
 
@@ -132,8 +134,6 @@ class TribeHandler
         ///////////////////////////////////
         // Handle all the request fields //
         ///////////////////////////////////
-
-        // Tribe
         $tribe->name = $request->name;
         $tribe->founded_on = $request->founded_on;
         $tribe->user_id = $user->id;
@@ -141,18 +141,23 @@ class TribeHandler
             $tribe->uuid = Str::uuid()->toString();
         }
         $tribe->home_server_id = intval($request->home_server_id);
-        // User
-        $user->tribe_id = $tribe->id;
+        $tribe->description = $request->description;
+
 
         // Save the profile image if it exists
         $tribe = self::saveTribeProfileImage($request, $tribe);
 
-        // Save the tribe and the user
+        // Save the tribe
         $tribeSave = $tribe->save();
+        // Define the Tribe ID for the User
+        $user->tribe_id = $tribe->id;
+        // Save The User
         $userSave = $user->save();
+        // If both saves are good
         if($userSave && $tribeSave) {
             return true;
         }
+
         return false;
     }
 
