@@ -91,7 +91,7 @@ class PagesController extends Controller
     }
 
     public function viewSpecificVersion($number) {
-        $version = Changelog::where('major_version', $number)->orderBy('id', 'desc')->get()->first();
+        $version = Changelog::where('major_version', $number)->orderBy('id', 'desc')->get()->firstOrFail();
         $versionNumbers = ChangelogHandler::getAllVersionNumbers();
         return view('changelog.view')
             ->withVersion($version)
