@@ -74,6 +74,8 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
                 ->name('edit');
         Route::put('update/{uuid}', 'Tribe\TribeController@update')
                 ->name('update');
+        Route::get('view/{uuid}', 'Tribe\TribeController@view')
+                ->name('view');
 
         Route::prefix('user')->name('user.')->group(function () {
             Route::get('add/{uuid}', 'Tribe\TribeController@addUser')

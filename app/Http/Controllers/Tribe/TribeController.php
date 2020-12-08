@@ -90,7 +90,7 @@ class TribeController extends Controller
 
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully created your tribe!');
-        return redirect()->route('user.dashboard');
+        return redirect()->route('tribe.view', Auth::user()->tribe->uuid);
     }
 
     /**
@@ -119,7 +119,7 @@ class TribeController extends Controller
 
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully updated your tribe!');
-        return redirect()->route('user.dashboard');
+        return redirect()->route('tribe.view', Auth::user()->tribe->uuid);
 
     }
 
@@ -182,6 +182,12 @@ class TribeController extends Controller
         }
         Session::flash('success', 'You have been added to the tribe!');
         return redirect()->route('user.dashboard');
+    }
+
+    public function view($uuid) {
+        $tribe = Tribe::where('uuid', $uuid)->firstOrFail();
+        return view('tribe.view')
+                ->withTribe($tribe);
     }
 
 

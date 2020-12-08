@@ -23,7 +23,7 @@
                 </li>
             @endif
             <li class="{{ $routeName == 'tribe.view' ? 'active' : '' }}">
-                <a href="#">
+                <a href="{{ route('tribe.view', $user->tribe->uuid) }}">
                     <i class="far fa-eye"></i> View Tribe
                 </a>
             </li>
