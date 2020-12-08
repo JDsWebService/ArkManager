@@ -17,7 +17,7 @@ class ChangelogHandler
      */
     public static function getCategories() {
         return [
-            'tribe' => 'Tribe',
+            'tribe' => 'Tribes',
             'dino' => 'Dino Mutations',
             'trade' => 'Trade Hub',
             'servers' => 'Ark Servers',
@@ -26,6 +26,7 @@ class ChangelogHandler
             'colors' => 'Ark Dino Colors',
             'api' => 'ArkManager.app API',
             'misc' => 'Miscellaneous',
+            'admin' => 'Admin Backend'
         ];
     }
 
