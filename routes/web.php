@@ -40,7 +40,7 @@ Route::prefix('admin')
             ->name('update');
         Route::delete('delete/{id}', 'Admin\ChangelogController@delete')
             ->name('delete');
-        Route::get('/', 'Admin\ChangeLogController@index')
+        Route::get('/', 'Admin\ChangelogController@index')
             ->name('index');
     });
 
