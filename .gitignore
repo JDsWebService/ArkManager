@@ -299,3 +299,4 @@ GitHub.sublime-settings
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm,sublimetext,git,laravel,node
 /database/factories/ChangelogFactory.php
 !app/Models/**/**
+/public/favicon/illustrator/
