@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Tribe\Tribe', 'tribe_id');
     }
 
+    /**
+     * Returns the users dinos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function dinos() {
         return $this->hasMany('App\Models\Dino\UserDino');
     }

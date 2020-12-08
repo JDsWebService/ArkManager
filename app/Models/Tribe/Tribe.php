@@ -18,7 +18,7 @@ class Tribe extends Model
     /**
      * Defines the relationship between the user model and the tribe model.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function users() {
         return $this->hasMany('App\Models\Auth\User');
