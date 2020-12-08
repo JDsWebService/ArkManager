@@ -9,7 +9,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Favicons -->
-<link href="{{ asset('favicon.ico') }}" rel="icon">
+@include('partials.favicons')
 
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
