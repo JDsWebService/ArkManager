@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Tribe;
 
+use App\Models\Auth\User;
 use App\Handlers\LogHandler;
 use App\Handlers\FormHandler;
 use App\Handlers\TribeHandler;
@@ -184,10 +185,52 @@ class TribeController extends Controller
         return redirect()->route('user.dashboard');
     }
 
+    /**
+     * Views a specific tribe grabbed by UUID of the tribe
+     *
+     * @param $uuid
+     * @return mixed
+     */
     public function view($uuid) {
         $tribe = Tribe::where('uuid', $uuid)->firstOrFail();
         return view('tribe.view')
                 ->withTribe($tribe);
+    }
+
+    /**
+     * Manage all users in a tribe
+     *
+     * @return mixed
+     */
+    public function manageUsers() {
+        $tribe = Auth::user()->tribe;
+        if(!$tribe->isUserTribeOwner) {
+            Session::flash('danger', 'You do not have permission to manage users in the tribe');
+        }
+        return view('tribe.user.manage')
+                ->withTribe($tribe);
+    }
+
+    /**
+     * Removes a tribe member from the tribe
+     *
+     * @param $userid
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function removeUser($userid) {
+        $user = User::find($userid);
+        if($user->id == $user->tribe->user_id) {
+            Session::flash('danger', 'You can remove yourself from your own tribe!');
+            return redirect()->route('tribe.user.manage');
+        }
+        $user->tribe_id = null;
+        foreach($user->dinos as $dino) {
+            $dino->user_tribe_id = null;
+            $dino->save();
+        }
+        $user->save();
+        Session::flash('success', 'Removed the user from the tribe successfully!');
+        return redirect()->route('tribe.user.manage');
     }
 
 

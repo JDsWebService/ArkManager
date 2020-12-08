@@ -84,6 +84,10 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
                 ->name('sendEmail');
             Route::get('acceptInvite/{token}', 'Tribe\TribeController@acceptInvite')
                 ->name('acceptInvite');
+            Route::get('manage', 'Tribe\TribeController@manageUsers')
+                ->name('manage');
+            Route::delete('remove/{userid}', 'Tribe\TribeController@removeUser')
+                ->name('remove');
         });
     }); // End Tribe Routes
 

@@ -21,6 +21,11 @@
                         <i class="fas fa-user-plus"></i> Add Tribemate
                     </a>
                 </li>
+                <li class="{{ $routeName == 'tribe.user.manage' ? 'active' : '' }}">
+                    <a href="{{ route('tribe.user.manage') }}">
+                        <i class="fas fa-users-cog"></i> Manage Tribemates
+                    </a>
+                </li>
             @endif
             <li class="{{ $routeName == 'tribe.view' ? 'active' : '' }}">
                 <a href="{{ route('tribe.view', $user->tribe->uuid) }}">
