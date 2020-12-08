@@ -118,6 +118,7 @@ class TribeHandler
             'founded_on' => 'Tribe Founded On',
             'home_server_id' => 'Home Server',
             'description' => 'Tribe Description',
+            'discord_link' => 'Discord Link',
         ];
     }
 
