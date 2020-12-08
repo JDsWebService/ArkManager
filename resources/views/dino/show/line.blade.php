@@ -16,11 +16,6 @@
             </a>
         </div>
         <div class="col-sm-3">
-            <a href="#" class="btn btn-block btn-secondary">
-                <i class="far fa-share-square"></i> Make Line Public
-            </a>
-        </div>
-        <div class="col-sm-3">
             <!-- Delete Button Modal Trigger -->
             <button class="btn btn-block btn-danger" data-toggle="modal" data-target="#deleteLineModal">
                 <i class="far fa-trash-alt"></i> Delete Base Dino
