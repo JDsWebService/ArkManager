@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Tribe\Invite;
 use App\Models\Dino\UserDino;
+use App\Rules\DiscordLinkRule;
 use Illuminate\Http\UploadedFile;
 use App\Exceptions\TribeException;
 use Illuminate\Support\Facades\Auth;
@@ -101,6 +102,7 @@ class TribeHandler
             'founded_on' => 'required|date',
             'home_server_id' => 'required|integer',
             'description' => 'nullable|string|max:5000',
+            'discord_link' => ['nullable', new DiscordLinkRule]
         ];
     }
 
@@ -142,6 +144,7 @@ class TribeHandler
         }
         $tribe->home_server_id = intval($request->home_server_id);
         $tribe->description = $request->description;
+        $tribe->discord_link = $request->discord_link;
 
 
         // Save the profile image if it exists

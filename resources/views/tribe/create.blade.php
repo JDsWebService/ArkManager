@@ -23,6 +23,9 @@
                 </div>
                 <div class="col-sm-6">
                     <x-tiny-m-c-e-editor placeholder="Tribe Description" id="description" label="Tribe Description"/>
+
+                    <label for="discord_link" class="mt-3">Discord Invite Link</label>
+                    {{ Form::text('discord_link', null, ['class' => 'form-control', 'placeholder'=> 'https://discord.gg/your_link_here']) }}
                 </div>
 
             </div> <!-- ./row-->
