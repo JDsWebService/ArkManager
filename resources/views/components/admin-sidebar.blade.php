@@ -6,7 +6,7 @@
 
         <ul class="list-unstyled menu-categories" id="adminSidebar">
 
-            @include('components.sidebar.adminDashboard')
+            @include('components.sidebar.adminStaticLinks')
 
             @include('components.sidebar.dashboard')
 

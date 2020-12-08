@@ -45,7 +45,7 @@ Route::prefix('admin')
     });
 
     // Testing Route for debugging purposes.
-    // Route::get('test', 'TestingController@test3')->name('test');
+    Route::get('test', 'TestingController@test')->name('test');
 });
 
 
