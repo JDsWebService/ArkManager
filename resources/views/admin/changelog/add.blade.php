@@ -33,7 +33,7 @@
                         <div class="col-sm-2">
                             <label class="switch s-icons s-outline s-outline-primary mr-2">
                                 <input type="hidden" name="prerelease" value="0">
-                                <input type="checkbox" name="prerelease" value="1">
+                                <input type="checkbox" name="prerelease" value="1" checked="checked">
                                 <span class="slider round"></span>
                             </label>
                         </div>
