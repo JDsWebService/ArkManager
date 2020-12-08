@@ -175,5 +175,11 @@ Route::get('terms-of-service', 'PagesController@termsOfService')->name('terms');
 Route::get('accept-conditions', 'PagesController@acceptConditions')->name('accept.conditions');
 Route::post('accept-conditions', 'PagesController@acceptConditionsStore')->name('accept.conditions.store');
 
+// Public Changelog Routes
+Route::get('changelog', 'PagesController@viewRecentChangelog')
+    ->name('changelog');
+Route::get('changelog/version/{number}', 'PagesController@viewSpecificVersion')
+    ->name('changelog.view');
+
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');

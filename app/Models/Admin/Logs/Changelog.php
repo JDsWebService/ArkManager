@@ -67,4 +67,34 @@ class Changelog extends Model
                 return "Version Type Error";
         }
     }
+
+    /**
+     * Returns all the additions made on the model
+     * instance within the instances major version
+     *
+     * @return mixed
+     */
+    public function getAddsAttribute() {
+        return $this->where('major_version', $this->major_version)->where('change_type', 'add')->get();
+    }
+
+    /**
+     * Returns all the changes made on the model
+     * instance within the instances major version
+     *
+     * @return mixed
+     */
+    public function getChangesAttribute() {
+        return $this->where('major_version', $this->major_version)->where('change_type', 'change')->get();
+    }
+
+    /**
+     * Returns all the patches made on the model
+     * instance within the instance major version
+     *
+     * @return mixed
+     */
+    public function getFixesAttribute() {
+        return $this->where('major_version', $this->major_version)->where('change_type', 'fix')->get();
+    }
 }

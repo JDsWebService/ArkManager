@@ -396,4 +396,19 @@ class ChangelogHandler
         }
         return $log;
     }
+
+    /**
+     * Returns all version numbers sorted by major version
+     *
+     * @return array
+     */
+    public static function getAllVersionNumbers()
+    {
+        $versionNumbers = [];
+        $previousVersions = Changelog::orderBy('major_version', 'desc')->get()->groupBy('major_version');
+        foreach($previousVersions as $version => $data) {
+            array_push($versionNumbers, $version);
+        }
+        return $versionNumbers;
+    }
 }
