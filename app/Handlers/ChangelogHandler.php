@@ -161,7 +161,7 @@ class ChangelogHandler
     private static function getPreReleaseStatus(Request $request)
     {
         $lastLog = Changelog::all()->last();
-        if($lastLog->prerelease == 0 && $request->prerelease == 1) {
+        if($lastLog != null && ($lastLog->prerelease == 0 && $request->prerelease == 1)) {
             throw new ChangelogHandlerException("Can not revert back to a prerelease status. The application has already been released!");
         }
 

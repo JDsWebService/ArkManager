@@ -40,6 +40,7 @@ class GitFixUntrackedFilesCommand extends Command
         exec('git rm -r --cached .');
         exec('git add .');
         exec("git commit -m \"fixed untracked files\"");
+        exec("git push origin master");
         return 0;
     }
 }
