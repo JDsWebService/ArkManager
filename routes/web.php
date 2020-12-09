@@ -44,6 +44,22 @@ Route::prefix('admin')
             ->name('index');
     });
 
+    // Admin Documentation Routes
+    Route::prefix('documentation')->name('documentation.')->group(function () {
+        Route::get('add', 'Admin\DocumentationController@add')
+            ->name('add');
+        Route::post('store', 'Admin\DocumentationController@store')
+            ->name('store');
+        Route::get('edit/{slug}', 'Admin\DocumentationController@edit')
+            ->name('edit');
+        Route::put('update/{slug}', 'Admin\DocumentationController@update')
+            ->name('update');
+        Route::delete('delete/{slug}', 'Admin\DocumentationController@delete')
+            ->name('delete');
+        Route::get('/', 'Admin\DocumentationController@index')
+            ->name('index');
+    });
+
     // Testing Route for debugging purposes.
     Route::get('test', 'TestingController@test')->name('test');
 });

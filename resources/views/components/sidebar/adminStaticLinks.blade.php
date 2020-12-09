@@ -7,6 +7,8 @@
     </a>
 </li>
 
+@include('components.sidebar.dashboard')
+
 <li class="menu">
     <a href="{{ route('admin.test') }}" {{ $routeName == 'admin.test' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
         <div>

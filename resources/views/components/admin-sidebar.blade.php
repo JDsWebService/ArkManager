@@ -8,9 +8,9 @@
 
             @include('components.sidebar.adminStaticLinks')
 
-            @include('components.sidebar.dashboard')
-
             @include('components.sidebar.adminChangelog')
+
+            @include('components.sidebar.adminDocumentation')
 
         </ul>
 

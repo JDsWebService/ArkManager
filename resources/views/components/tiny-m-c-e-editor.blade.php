@@ -1,7 +1,7 @@
 <div @if($margin)class="mt-3"@endif>
     <label for="{{ $id }}">{{ $label }}</label>
     <textarea id="{{ $id }}" name="{{ $id }}" placeholder="{{ $placeholder }}">
-        @if($model){{ $model }}@endif
+        @if($model){!! $model !!}@endif
     </textarea>
 </div>
 <script>
