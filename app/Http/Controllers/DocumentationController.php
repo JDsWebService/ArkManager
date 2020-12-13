@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Documentation\Documentation;
 
 class DocumentationController extends Controller
@@ -15,12 +16,12 @@ class DocumentationController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function index() {
-        $docs = Documentation::orderBy('created_at')->get();
-        if($docs == null) {
+        $docs = Documentation::orderBy('created_at')->get()->groupBy('category');
+        if($docs->count() == 0) {
             Session::flash('info', "We haven't created any documentation just yet. Come back soon to find out more about ArkManager.app!");
             return redirect()->route('index');
         }
-        $docs = $docs->groupBy('category');
+        $docs = $docs;
         $popularDocs = Documentation::orderBy('liked')->get()->take(5);
         $newestDocs = Documentation::orderBy('created_at')->get()->take(5);
         return view('documentation.index')
@@ -54,7 +55,7 @@ class DocumentationController extends Controller
      */
     public function viewCategory($category) {
         $docs = Documentation::where('category', Str::lower($category))->paginate(10);
-        if($docs == null) {
+        if($docs->count() == 0) {
             Session::flash('warning', "No documentation found for {$category}. Try again later.");
             return redirect()->route('documentation.index');
         }

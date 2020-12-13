@@ -223,12 +223,13 @@ Route::get('changelog/version/{number}', 'PagesController@viewSpecificVersion')
 
 // Documentation Routes
 Route::prefix('documentation')->name('documentation.')->group(function () {
-    Route::get('/', 'DocumentationController@index')
-        ->name('index');
+
     Route::get('{category}', 'DocumentationController@viewCategory')
         ->name('view.category');
     Route::get('{category}/{slug}', 'DocumentationController@viewSingle')
         ->name('view.single');
+    Route::get('/', 'DocumentationController@index')
+        ->name('index');
 });
 
 // Site Homepage (Index)
