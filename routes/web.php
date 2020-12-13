@@ -221,5 +221,11 @@ Route::get('changelog', 'PagesController@viewRecentChangelog')
 Route::get('changelog/version/{number}', 'PagesController@viewSpecificVersion')
     ->name('changelog.view');
 
+// Documentation Routes
+Route::prefix('documentation')->name('documentation.')->group(function () {
+    Route::get('/', 'DocumentationController@index')
+        ->name('index');
+});
+
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');

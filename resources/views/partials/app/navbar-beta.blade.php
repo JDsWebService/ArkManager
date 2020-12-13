@@ -11,8 +11,7 @@
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="https://discord.gg/qPgdqfFTgm">Join Our Discord</a></li>
                 <li><a href="{{ route('changelog') }}">Changelog</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Features</a></li>
+                <li><a href="{{ route('index') }}#services">Features</a></li>
                 {{--                <li class="drop-down">--}}
                 {{--                    <a href="">Drop Down</a>--}}
                 {{--                    <ul>--}}

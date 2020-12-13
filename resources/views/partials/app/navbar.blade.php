@@ -11,9 +11,8 @@
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="https://discord.gg/qPgdqfFTgm">Join Our Discord</a></li>
                 <li><a href="{{ route('changelog') }}">Changelog</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Features</a></li>
-                <li><a href="#team">Team</a></li>
+                <li><a href="{{ route('documentation.index') }}">Documentation</a></li>
+                <li><a href="{{ route('index') }}#services">Features</a></li>
 {{--                <li class="drop-down">--}}
 {{--                    <a href="">Drop Down</a>--}}
 {{--                    <ul>--}}
@@ -32,7 +31,6 @@
 {{--                        <li><a href="#">Drop Down 4</a></li>--}}
 {{--                    </ul>--}}
 {{--                </li>--}}
-                <li><a href="#contact">Contact</a></li>
                 {{-- Discord Login Button --}}
                 @guest
                     <li>

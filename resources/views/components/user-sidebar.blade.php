@@ -6,9 +6,7 @@
 
         <ul class="list-unstyled menu-categories" id="userSidebar">
 
-            @include('components.sidebar.dashboard')
-
-            @include('components.sidebar.userDocumentation')
+            @include('components.sidebar.userStaticLinks')
 
             @include('components.sidebar.tribe')
 
