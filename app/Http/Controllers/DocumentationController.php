@@ -15,11 +15,12 @@ class DocumentationController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function index() {
-        $docs = Documentation::orderBy('created_at')->get()->groupBy('category');
+        $docs = Documentation::orderBy('created_at')->get();
         if($docs == null) {
             Session::flash('info', "We haven't created any documentation just yet. Come back soon to find out more about ArkManager.app!");
             return redirect()->route('index');
         }
+        $docs = $docs->groupBy('category');
         $popularDocs = Documentation::orderBy('liked')->get()->take(5);
         $newestDocs = Documentation::orderBy('created_at')->get()->take(5);
         return view('documentation.index')
