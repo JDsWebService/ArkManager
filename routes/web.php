@@ -25,8 +25,14 @@ Route::prefix('admin')
         ->middleware('auth.admin')
         ->group(function () {
 
+    // Admin Dashboard Route
     Route::get('dashboard', 'Admin\AdminController@dashboard')
             ->name('dashboard');
+
+    // Laravel Filemanager Routes
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth.admin']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 
     // Admin Changelog Routes
     Route::prefix('changelog')->name('changelog.')->group(function () {

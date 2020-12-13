@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <x-tiny-m-c-e-editor margin="true" label="Documentation Content" placeholder="Write the next great documentation" id="body"/>
+                    <x-admin-tiny-m-c-e-editor margin="true" label="Documentation Content" placeholder="Write the next great documentation" id="body"/>
                 </div>
             </div>
 
