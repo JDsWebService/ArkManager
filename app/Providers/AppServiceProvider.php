@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Defines the default pagination view.
          */
-        Paginator::defaultView('vendor.pagination.user');
+        Paginator::defaultView('pagination.user');
 
         /**
          * Share the view name with all views!

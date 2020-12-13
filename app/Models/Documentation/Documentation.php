@@ -23,4 +23,13 @@ class Documentation extends Model
     public function getCategoryAttribute($value) {
         return Str::title($value);
     }
+
+    /**
+     * Defines the relationship between the documentation and the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user() {
+        return $this->belongsTo('App\Models\Auth\User');
+    }
 }

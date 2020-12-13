@@ -7,8 +7,17 @@
     </a>
 </li>
 
-@include('components.sidebar.dashboard')
+<!-- User Dashboard -->
+<li class="menu">
+    <a href="{{ route('user.dashboard') }}" {{ $routeName == 'user.dashboard' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
+        <div class="">
+            <i class="fas fa-tachometer-alt"></i>
+            <span> Your Dashboard</span>
+        </div>
+    </a>
+</li>
 
+<!-- Admin Testing Route -->
 <li class="menu">
     <a href="{{ route('admin.test') }}" {{ $routeName == 'admin.test' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
         <div>
@@ -18,6 +27,7 @@
     </a>
 </li>
 
+<!-- Force Login Route -->
 <li class="menu">
     <a href="{{ route('admin.force.login.form') }}" {{ $routeName == 'admin.force.login.form' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
         <div>
