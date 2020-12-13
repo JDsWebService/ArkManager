@@ -7,6 +7,7 @@ namespace App\Handlers;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\Dino\UserDino;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -30,7 +31,9 @@ class DinoHandler
         // Create new UserDino instance
         $dino = new UserDino;
         // Handle all required fields
-        $dino->user_tribe_id = TribeHandler::getTribeID();
+        if(Auth::user()->tribe_sees_dinos == true) {
+            $dino->user_tribe_id = TribeHandler::getTribeID();
+        }
         $dino->user_id = UserHandler::getUserID();
         $dino->dino_meta_info_id = $request->dino_meta_info_id;
         $dino->uuid = $generate['uuid'];
@@ -93,7 +96,9 @@ class DinoHandler
         // Create new UserDino instance
         $dino = new UserDino;
         // Handle all required fields
-        $dino->user_tribe_id = TribeHandler::getTribeID();
+        if(Auth::user()->tribe_sees_dinos == true) {
+            $dino->user_tribe_id = TribeHandler::getTribeID();
+        }
         $dino->user_id = UserHandler::getUserID();
         $dino->dino_meta_info_id = $newestDino->dino_meta_info_id;
         $dino->uuid = $generate['uuid'];
@@ -539,6 +544,71 @@ class DinoHandler
     private static function getMutationTypes()
     {
         return [ 'health', 'stamina', 'torpidity', 'oxygen', 'food', 'water', 'temperature', 'weight', 'damage', 'movement', 'fortitude', 'crafting'];
+    }
+
+    /**
+     * Updates the user dinos in the database according to the users settings
+     *
+     * @param $user
+     * @return void
+     */
+    public static function updateUserDinosTribeSettings($user)
+    {
+        // If the user does NOT allow the tribe to see their tracked dinos
+        if($user->tribe_sees_dinos == false) {
+            // Grab all the user base dinos
+            $baseDinos = UserDino::where('user_id', $user->id)->where('mutation_count', 0)->get();
+            // If there are any base dinos
+            if($baseDinos->count() != 0) {
+                // Loop through the base dinos
+                foreach($baseDinos as $baseDino) {
+                    // Set the base dinos tribe id to null & save
+                    $baseDino->user_tribe_id = null;
+                    $baseDino->save();
+                    // Grab any mutated dinos associated with the base dino
+                    $mutatedDinos = UserDino::where('uuid', $baseDino->uuid)->get();
+                    // If there are mutated dinos...
+                    if($mutatedDinos->count() != 0) {
+                        // loop through them
+                        foreach($mutatedDinos as $mutatedDino) {
+                            // Set tribe id to null
+                            $mutatedDino->user_tribe_id = null;
+                            // Change any of the mutated dinos to the user that made the base dino
+                            $mutatedDino->user_id = $user->id;
+                            // Save the dino
+                            $mutatedDino->save();
+                        }
+                    }
+                }
+            }
+        }
+
+        if($user->tribe_sees_dinos == true) {
+            // Grab all the user base dinos
+            $baseDinos = UserDino::where('user_id', $user->id)->where('mutation_count', 0)->get();
+            // If there are any base dinos
+            if($baseDinos->count() != 0) {
+                // Loop through the base dinos
+                foreach($baseDinos as $baseDino) {
+                    // Set the base dinos tribe id to null & save
+                    $baseDino->user_tribe_id = TribeHandler::getTribeID();
+                    $baseDino->save();
+                    // Grab any mutated dinos associated with the base dino
+                    $mutatedDinos = UserDino::where('uuid', $baseDino->uuid)->get();
+                    // If there are mutated dinos...
+                    if($mutatedDinos->count() != 0) {
+                        // loop through them
+                        foreach($mutatedDinos as $mutatedDino) {
+                            // Set tribe id to null
+                            $mutatedDino->user_tribe_id = TribeHandler::getTribeID();
+                            // Save the dino
+                            $mutatedDino->save();
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
 

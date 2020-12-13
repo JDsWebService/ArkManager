@@ -116,7 +116,6 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
     // Dino Routes
     Route::prefix('dino')
            ->name('dino.')
-           ->middleware('user.intribe')
            ->group(function () {
 
         Route::get('new/base-dino', 'Dino\DinosController@newBaseDino')

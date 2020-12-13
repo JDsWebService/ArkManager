@@ -11,14 +11,11 @@
                 <h4>General Settings</h4>
                 <hr>
                 <div class="row form-group">
-                        <label for="news_notifications" class="col-sm-5 col-form-label">Get News and Updates Regarding ArkManager?</label>
+                    <label for="news_notifications" class="col-sm-5 col-form-label">Get News and Updates Regarding ArkManager?</label>
                     <div class="col-sm-7">
                         <label class="switch s-icons s-outline s-outline-primary mr-2">
-                            @if($user->news_notifications)
-                                <input type="checkbox" name="news_notifications" checked>
-                            @else
-                                <input type="checkbox" name="news_notifications">
-                            @endif
+                            <input type="hidden" name="news_notifications" value="0">
+                            {{ Form::checkbox('news_notifications', '1', $user->news_notifications) }}
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -34,11 +31,8 @@
                     </label>
                     <div class="col-sm-7">
                         <label class="switch s-icons s-outline s-outline-primary mr-2">
-                            @if($user->discord_notifications)
-                                <input type="checkbox" name="discord_notifications" checked>
-                            @else
-                                <input type="checkbox" name="discord_notifications">
-                            @endif
+                            <input type="hidden" name="discord_notifications" value="0">
+                            {{ Form::checkbox('discord_notifications', '1', $user->discord_notifications) }}
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -54,11 +48,8 @@
                     </label>
                     <div class="col-sm-7">
                         <label class="switch s-icons s-outline s-outline-primary mr-2">
-                            @if($user->internal_notifications)
-                                <input type="checkbox" name="internal_notifications" checked>
-                            @else
-                                <input type="checkbox" name="internal_notifications">
-                            @endif
+                            <input type="hidden" name="internal_notifications" value="0">
+                            {{ Form::checkbox('internal_notifications', '1', $user->internal_notifications) }}
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -116,6 +107,26 @@
                     </div>
                 </div>
             </div> <!-- ./row -->
+
+        </div> <!-- ./col-sm-12 -->
+    </div> <!-- ./row section -->
+
+    <div class="row justify-content-center section">
+        <div class="col-sm-12">
+            <h4>Mutation Tracker Settings</h4>
+            <hr>
+            <div class="row form-group">
+                <label for="tribe_sees_dinos" class="col-sm-5 col-form-label">
+                    Allow tribe to view, edit, and update your tracked dinos?
+                </label>
+                <div class="col-sm-7">
+                    <label class="switch s-icons s-outline s-outline-primary mr-2">
+                        <input type="hidden" name="tribe_sees_dinos" value="0">
+                        {{ Form::checkbox('tribe_sees_dinos', '1', $user->tribe_sees_dinos) }}
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
 
         </div> <!-- ./col-sm-12 -->
     </div> <!-- ./row section -->

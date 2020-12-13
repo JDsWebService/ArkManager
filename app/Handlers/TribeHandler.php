@@ -42,6 +42,9 @@ class TribeHandler
      * @return mixed
      */
     public static function getTribeID() {
+        if(Auth::user()->tribe == null) {
+            return null;
+        }
         return Auth::user()->tribe->id;
     }
 

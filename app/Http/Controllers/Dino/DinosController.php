@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Dino;
 use App\Handlers\DinoHandler;
 use App\Handlers\FormHandler;
 use App\Models\Dino\UserDino;
+use Illuminate\Support\Collection;
 use App\Models\Ark\ArkDinoMetaInfo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class DinosController extends Controller
 {
@@ -18,12 +22,42 @@ class DinosController extends Controller
      * @return mixed
      */
     public function index() {
-        $baseDinos = UserDino::where('mutation_count', 0)->orderBy('created_at')->paginate(10);
+        $user = Auth::user();
+
+        if($user->tribe_id != null) {
+            $tribeDinos = UserDino::where('mutation_count', 0)
+                            ->where('user_tribe_id', $user->tribe_id)
+                            ->get();
+            $personalDinos = UserDino::where('mutation_count', 0)
+                            ->where('user_id', $user->id)
+                            ->get();
+            $collected = collect($tribeDinos->merge($personalDinos)->sortByDesc('created_at'));
+            // dd($collected);
+            $baseDinos = $this->paginate($collected);
+        } else {
+            $baseDinos = UserDino::where('mutation_count', 0)
+                ->where('user_id', $user->id)
+                ->orderBy('created_at')
+                ->paginate(10);
+        }
+
         if($baseDinos->count() == 0) {
             Session::flash('warning', 'You have no saved breeding lines in the database. Why not create one now?');
             return redirect()->route('dino.new.base');
         }
         return view('dino.index')->withBaseDinos($baseDinos);
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
     /**
