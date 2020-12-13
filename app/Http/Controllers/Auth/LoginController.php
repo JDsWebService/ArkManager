@@ -47,7 +47,7 @@ class LoginController extends Controller
     /**
      * Redirect the user to the discord authentication page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectToProvider()
     {
@@ -94,11 +94,7 @@ class LoginController extends Controller
 
         Auth::login($user, true);
 
-        LogHandler::event('login', 'LoginController@login');
-
         $this->isUserStaff($user);
-
-        // dd(Auth::user());
 
         // Handle BETA Access Redirect
         Session::flash('success', 'You have been signed up for BETA access, make sure that you check your eMail on December 31st 2020 for the release information!');
@@ -109,35 +105,37 @@ class LoginController extends Controller
 
     }
 
-    // Check to see if user is Staff
+    /**
+     * Checks to see if the user is added to the staff list
+     *
+     * @param $user
+     * @return bool
+     */
     protected function isUserStaff($user)
     {
-
-        // Define List of Staff
         $staff = [
             'DJRedNight#3428',
             'xX_Rai_Xx#9448',
         ];
-
-        // Check if logged in user is in staff array
         if (in_array($user->fullusername, $staff)) {
-            // Create a session variable to be used by Blade Directive
-            // Ref: AppServiceProvider.php
             $user->admin = true;
             $user->save();
-
             return true;
         }
-
         return false;
-
     }
 
+    /**
+     * Logs out the user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
-        LogHandler::event('logout', 'LoginController@logout');
         Auth::logout();
         Session::flush();
         return redirect()->route('index');
     }
+
+
 }

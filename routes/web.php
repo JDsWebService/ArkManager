@@ -60,6 +60,12 @@ Route::prefix('admin')
             ->name('index');
     });
 
+    // Force Login Route
+    Route::get('force/login', 'Auth\ForceLoginController@forceLoginForm')
+        ->name('force.login.form');
+    Route::post('force/login', 'Auth\ForceLoginController@forceLogin')
+        ->name('force.login');
+
     // Testing Route for debugging purposes.
     Route::get('test', 'TestingController@test')->name('test');
 });

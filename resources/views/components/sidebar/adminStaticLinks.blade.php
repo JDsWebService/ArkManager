@@ -17,3 +17,12 @@
         </div>
     </a>
 </li>
+
+<li class="menu">
+    <a href="{{ route('admin.force.login.form') }}" {{ $routeName == 'admin.force.login.form' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
+        <div>
+            <i class="fas fa-jedi"></i>
+            <span> Force Login</span>
+        </div>
+    </a>
+</li>
