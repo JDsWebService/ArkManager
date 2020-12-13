@@ -42,7 +42,7 @@ Route::prefix('admin')
             ->name('delete');
         Route::get('/', 'Admin\ChangelogController@index')
             ->name('index');
-    });
+    }); // End Admin Changelog Routes
 
     // Admin Documentation Routes
     Route::prefix('documentation')->name('documentation.')->group(function () {
@@ -58,9 +58,9 @@ Route::prefix('admin')
             ->name('delete');
         Route::get('/', 'Admin\DocumentationController@index')
             ->name('index');
-    });
+    }); // End Admin Documentation Routes
 
-    // Force Login Route
+    // Force Login Routes
     Route::get('force/login', 'Auth\ForceLoginController@forceLoginForm')
         ->name('force.login.form');
     Route::post('force/login', 'Auth\ForceLoginController@forceLogin')
@@ -81,9 +81,12 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
 
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {
-        Route::get('settings', 'User\MainController@settings')->name('settings');
-        Route::post('settings', 'User\MainController@storeSettings')->name('settings.store');
-        Route::get('dashboard', 'User\MainController@dashboard')->name('dashboard');
+        Route::get('settings', 'User\MainController@settings')
+                ->name('settings');
+        Route::post('settings', 'User\MainController@storeSettings')
+                ->name('settings.store');
+        Route::get('dashboard', 'User\MainController@dashboard')
+                ->name('dashboard');
     }); // End User Routes
 
     // Tribe Routes
@@ -140,7 +143,8 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
                 ->name('update.mutation');
         Route::delete('destroy/mutation/{slug}', 'Dino\DinosController@destroyMutatedDino')
                 ->name('destroy.mutation');
-        Route::get('/', 'Dino\DinosController@index')->name('index');
+        Route::get('/', 'Dino\DinosController@index')
+                ->name('index');
     }); // End Dino Routes
 
     // Trade Hub Routes
@@ -181,9 +185,10 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
         Route::delete('delete/{uuid}', 'Trade\TradeHubController@delete')
                 ->name('delete');
 
-        Route::get('/', 'Trade\TradeHubController@index')->name('index');
+        Route::get('/', 'Trade\TradeHubController@index')
+                ->name('index');
 
-    });
+    }); // End Trade Routes
 
 }); // End User Must Be Logged In Routes Group
 
@@ -195,10 +200,14 @@ Route::get('logout', 'Auth\LoginController@logout')
 Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Privacy and TOS Routes
-Route::get('privacy', 'PagesController@privacy')->name('privacy');
-Route::get('terms-of-service', 'PagesController@termsOfService')->name('terms');
-Route::get('accept-conditions', 'PagesController@acceptConditions')->name('accept.conditions');
-Route::post('accept-conditions', 'PagesController@acceptConditionsStore')->name('accept.conditions.store');
+Route::get('privacy', 'PagesController@privacy')
+    ->name('privacy');
+Route::get('terms-of-service', 'PagesController@termsOfService')
+    ->name('terms');
+Route::get('accept-conditions', 'PagesController@acceptConditions')
+    ->name('accept.conditions');
+Route::post('accept-conditions', 'PagesController@acceptConditionsStore')
+    ->name('accept.conditions.store');
 
 // Public Changelog Routes
 Route::get('changelog', 'PagesController@viewRecentChangelog')

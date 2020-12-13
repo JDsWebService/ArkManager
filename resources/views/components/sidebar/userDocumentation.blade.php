@@ -1,6 +1,6 @@
 <li class="menu">
     <!-- Sidebar Parent Title -->
-    <a href="#getting-started" data-toggle="collapse" class="dropdown-toggle" {{ strpos($routeName, 'help') !== false ? 'aria-expanded=true data-active=true' : ""}}>
+    <a href="#user-documentation" data-toggle="collapse" class="dropdown-toggle" {{ strpos($routeName, 'documentation') !== false ? 'aria-expanded=true data-active=true' : ""}}>
         <div>
             <i class="fas fa-info-circle"></i>
             <span>Getting Started</span>
@@ -11,7 +11,7 @@
     </a>
 
     <!-- Dropdown Menu -->
-    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'help') !== false ? 'show' : ""}}" id="getting-started" data-parent="#userSidebar">
+    <ul class="submenu list-unstyled collapse {{ strpos($routeName, 'documentation') !== false ? 'show' : ""}}" id="user-documentation" data-parent="#userSidebar">
 
         <li class="{{ $routeName == 'help.tribe' ? 'active' : '' }}">
             <a href="#">

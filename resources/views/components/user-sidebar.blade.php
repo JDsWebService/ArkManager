@@ -8,7 +8,7 @@
 
             @include('components.sidebar.dashboard')
 
-            @include('components.sidebar.gettingstarted')
+            @include('components.sidebar.userDocumentation')
 
             @include('components.sidebar.tribe')
 
