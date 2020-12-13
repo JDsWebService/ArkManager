@@ -26,7 +26,8 @@ class ChangelogHandler
             'colors' => 'Ark Dino Colors',
             'api' => 'ArkManager.app API',
             'misc' => 'Miscellaneous',
-            'admin' => 'Admin Backend'
+            'admin' => 'Admin Backend',
+            'documentation' => 'Documentation',
         ];
     }
 
