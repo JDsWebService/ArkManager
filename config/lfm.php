@@ -92,7 +92,7 @@ return [
 
     'disk'                     => 'public',
 
-    'rename_file'              => true,
+    'rename_file'              => false,
 
     'rename_duplicates'        => true,
 
@@ -107,7 +107,7 @@ return [
     // behavior on files with identical name
     // setting it to true cause old file replace with new one
     // setting it to false show `error-file-exist` error and stop upload
-    'over_write_on_duplicate'  => false,
+    'over_write_on_duplicate'  => true,
 
     /*
     |--------------------------------------------------------------------------
