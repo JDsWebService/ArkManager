@@ -7,7 +7,7 @@
 <script>
     var editor_config = {
         selector: 'textarea#{{ $id }}',
-        plugins: 'autolink lists link hr anchor image',
+        plugins: 'autolink lists link hr image',
         menubar: false,
         branding: false,
         style_formats: [
@@ -42,7 +42,10 @@
             },
             {
                 name: 'image', items: [ 'image' ]
-            }
+            },
+            {
+                name: 'link', items: ['link']
+            },
         ],
         path_absolute : "/",
         relative_urls: false,
