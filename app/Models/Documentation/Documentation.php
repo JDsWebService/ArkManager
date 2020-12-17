@@ -21,7 +21,7 @@ class Documentation extends Model
      * @return string
      */
     public function getCategoryAttribute($value) {
-        return Str::title($value);
+        return str_replace('_', ' ', Str::title($value));
     }
 
     /**
