@@ -217,9 +217,11 @@ class DinoColorHandler
     public static function updateUserDinosTribeSettings($user)
     {
         $dinos = UserDinoColor::where('user_id', $user->id)->get();
-        foreach($dinos as $dino) {
-            ($user->tribe_sees_dinos == false) ? $dino->tribe_id = null : $dino->tribe_id = $user->tribe->id;
-            $dino->save();
+        if($dinos->count() != 0) {
+            foreach($dinos as $dino) {
+                ($user->tribe_sees_dinos == false) ? $dino->tribe_id = null : $dino->tribe_id = $user->tribe->id;
+                $dino->save();
+            }
         }
     }
 
