@@ -20,6 +20,7 @@ class DocumentationHandler
     public static function getCategories() {
         return [
             'breeding' => 'Dino Breeding',
+            'dino_colors' => 'Dino Colors',
             'tribe' => 'Tribe Management',
             'trade' => 'Trade Hub',
             'api' => 'ArkManager API',
