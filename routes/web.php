@@ -153,6 +153,18 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
                 ->name('index');
     }); // End Dino Routes
 
+    // Color Tracker
+    Route::prefix('color')->name('color.')->group(function () {
+        Route::get('upload', 'Dino\ColorController@uploadINI')
+                ->name('upload');
+        Route::post('parse', 'Dino\ColorController@parse')
+                ->name('parse');
+        Route::get('view/{ark_dino_id}', 'Dino\ColorController@view')
+                ->name('view');
+        Route::get('/', 'Dino\ColorController@index')
+                ->name('index');
+    });
+
     // Trade Hub Routes
     Route::prefix('trade')
             ->name('trade.')
@@ -230,7 +242,7 @@ Route::prefix('documentation')->name('documentation.')->group(function () {
         ->name('view.single');
     Route::get('/', 'DocumentationController@index')
         ->name('index');
-});
+}); // End Documentation Routes
 
 // Site Homepage (Index)
 Route::get('/', 'PagesController@index')->name('index');

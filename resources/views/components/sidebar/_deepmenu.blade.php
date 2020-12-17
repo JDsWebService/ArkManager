@@ -1,28 +1,34 @@
 <li class="menu">
-    <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+    <a href="#dino-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" {{ strpos($routeName, 'dino') !== false ? 'aria-expanded=true data-active=true' : ""}}>
         <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-            <span> Menu 3</span>
+            <i class="fas fa-dragon"></i>
+            <span>Dinos</span>
         </div>
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            @include('components.sidebar.sidebar-arrow')
         </div>
     </a>
-    <ul class="collapse submenu list-unstyled" id="submenu2" data-parent="#userSidebar">
-        <li>
+    <ul class="collapse submenu list-unstyled {{ strpos($routeName, 'dino') !== false ? 'show' : ""}}" id="dino-menu" data-parent="#userSidebar">
+        <!-- Single Link -->
+        <!-- <li>
             <a href="javascript:void(0);"> Submenu 1 </a>
-        </li>
-        <li>
-            <a href="#sm2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Submenu 2 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-            <ul class="collapse list-unstyled sub-submenu" id="sm2" data-parent="#submenu2">
-                <li>
-                    <a href="javascript:void(0);"> Sub-Submenu 1 </a>
+        </li> -->
+        <!-- Deep Dropdown -->
+        <li class="my-2">
+            <a href="#dinoMutationDeep" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" {{ strpos($routeName, 'dino') !== false ? 'aria-expanded=true data-active=true' : ""}}>
+                Mutation Tracker
+                @include('components.sidebar.sidebar-arrow')
+            </a>
+            <ul class="collapse list-unstyled sub-submenu {{ strpos($routeName, 'dino') !== false ? 'show' : ""}}" id="dinoMutationDeep" data-parent="#dino-menu">
+                <li class="{{ $routeName == 'dino.new.base' ? 'active' : '' }}">
+                    <a href="{{ route('dino.new.base') }}">
+                        <i class="fas fa-baby"></i> New Base Dino
+                    </a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);"> Sub-Submenu 2 </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);"> Sub-Submenu 3 </a>
+                <li class="{{ $routeName == 'dino.index' ? 'active' : '' }}">
+                    <a href="{{ route('dino.index') }}">
+                        <i class="far fa-eye"></i> View Tracked Dinos
+                    </a>
                 </li>
             </ul>
         </li>

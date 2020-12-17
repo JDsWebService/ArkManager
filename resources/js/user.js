@@ -11,7 +11,7 @@ require('./user/custom');
 
 // Enable All Tooltips on All Pages
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-bs-toggle="tooltip"]').tooltip()
 });
 
 // Theme Specific JS

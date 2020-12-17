@@ -38676,7 +38676,7 @@ __webpack_require__(/*! ./user/custom */ "./resources/js/user/custom.js"); // En
 
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-bs-toggle="tooltip"]').tooltip();
 }); // Theme Specific JS
 
 __webpack_require__(/*! ./user/main */ "./resources/js/user/main.js");

@@ -14,6 +14,8 @@
 
             @include('components.sidebar.trade')
 
+            {{--            @include('components.sidebar._deepmenu')--}}
+
         </ul>
 
     </nav>

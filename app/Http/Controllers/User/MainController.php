@@ -6,6 +6,7 @@ use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use App\Handlers\FormHandler;
 use App\Handlers\DinoHandler;
+use App\Handlers\DinoColorHandler;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -60,6 +61,7 @@ class MainController extends Controller
         $user->internal_notifications = ($request->internal_notifications == '1' ? true : false);
         $user->tribe_sees_dinos = ($request->tribe_sees_dinos == '1' ? true : false);
         DinoHandler::updateUserDinosTribeSettings($user);
+        DinoColorHandler::updateUserDinosTribeSettings($user);
         $user->save();
         Session::flash('success', 'You have saved your settings successfully!');
         return redirect()->route('user.dashboard');

@@ -113,7 +113,7 @@
 
     <div class="row justify-content-center section">
         <div class="col-sm-12">
-            <h4>Mutation Tracker Settings</h4>
+            <h4>Dino Tracker Settings</h4>
             <hr>
             <div class="row form-group">
                 <label for="tribe_sees_dinos" class="col-sm-5 col-form-label">
