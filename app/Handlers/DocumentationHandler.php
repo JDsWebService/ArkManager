@@ -23,6 +23,7 @@ class DocumentationHandler
             'tribe' => 'Tribe Management',
             'trade' => 'Trade Hub',
             'api' => 'ArkManager API',
+            'getting_started' => 'Getting Started',
         ];
     }
 

@@ -159,7 +159,6 @@ class ImportArkDinosCommand extends Command
         $this->info("Storing DinoData[] to dinos.json file...\n");
         Storage::put('/public/arkids/dinos.json', json_encode($dinoData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         $this->info("Command completed!\n");
-        LogHandler::event('cli', 'GetMasterDinoInformationCommand', 'import:dinos command was run successfully');
         return 0;
 
     }
