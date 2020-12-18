@@ -28,7 +28,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <img src="icons/alerts/warning.png" style="width: 128px; height: 128px;" alt="Danger Alert Image">
+                        <img src="{{ asset("icons/alerts/warning.png") }}" style="width: 128px; height: 128px;" alt="Danger Alert Image">
                     </div>
                     <div class="col-sm-12 mt-3">
                         <p>Are you sure that you want to delete this line? This action once performed can not be undone. This will also delete any dinos in our database that are associated with this breeding line.</p>
