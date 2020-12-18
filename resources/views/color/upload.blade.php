@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center">
         <div class="col-sm-12">
-            <p class="lead">Upload your exported dino's INI file. For more information on where to find your exported dino's INI file, or how to export a dino, check out our <a href="#" class="text-info">Dino Export/Import Documentation</a>.</p>
+            <p class="lead">Upload your exported dino's INI file. For more information on where to find your exported dino's INI file, or how to export a dino, check out our <a href="https://arkmanager.app/documentation/Getting%20Started/exporting-a-dino-from-ark-1-1608240538" target="_blank" class="text-info">Exporting A Dino From Ark</a> documentation.</p>
 
             {{ Form::open(['route' => 'color.parse', 'method' => 'POST', 'files' => true]) }}
 
