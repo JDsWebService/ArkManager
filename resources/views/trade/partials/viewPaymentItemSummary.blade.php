@@ -15,7 +15,7 @@
             <!-- End Item Quantity -->
 
             <!-- Item Quality -->
-            @if($trade->paymentHasQuality)
+            @if($trade->paymentItem->hasQuality)
                 <tr>
                     <th class="text-white">Quality:</th>
                     <td class="text-center">
@@ -45,7 +45,7 @@
         <!-- End Item Quality -->
 
             <!-- Item Armor -->
-            @if($trade->paymentHasArmor)
+            @if($trade->paymentItem->hasArmor)
                 <tr>
                     <th class="text-white">Armor:</th>
                     <td class="text-center">
@@ -55,7 +55,7 @@
             @endif
         <!-- Send Item Armor -->
 
-            @if($trade->paymentHasTemperature)
+            @if($trade->paymentItem->hasTemperature)
             <!-- Item Hypothermic -->
                 <tr>
                     <th class="text-white">Hypothermic Resistance:</th>
@@ -72,7 +72,7 @@
             @endif
 
         <!-- Item Damage -->
-            @if($trade->paymentHasDamage)
+            @if($trade->paymentItem->hasDamage)
                 <tr>
                     <th class="text-white">Damage: </th>
                     <td class="text-center">{{ $trade->payment_damage }}%</td>
@@ -81,7 +81,7 @@
         <!-- End Item Damage -->
 
             <!-- Item Durability -->
-            @if($trade->paymentHasDurability)
+            @if($trade->paymentItem->hasDurability)
                 <tr>
                     <th class="text-white">Durability</th>
                     <td class="text-center">{{ $trade->payment_durability }}</td>
@@ -90,7 +90,7 @@
         <!-- End Item Durability -->
 
             <!-- Item Blueprint -->
-            @if($trade->paymentHasBlueprint)
+            @if($trade->paymentItem->hasBlueprint)
                 <tr>
                     <th class="text-white">Is Item A Blueprint?
                     <td class="text-center">

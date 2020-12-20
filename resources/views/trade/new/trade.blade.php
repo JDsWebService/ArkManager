@@ -4,6 +4,15 @@
 
 @section('content')
 
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="callout callout-info">
+                <h4>Heads Up!</h4>
+                <p>Currently this feature is only for <strong>OFFICIAL SERVERS</strong>! If you are apart of a private cluster, unofficial cluster, or anywhere other then an Official Server, please refrain from posting a trade on our site. We will be adding a feature later on to include a seperate cluster trade hub for server owners. This will be coming in spring of 2021. Thanks!</p>
+            </div>
+        </div>
+    </div>
+
     {{ Form::open(['route' => 'trade.new.config.items', 'method' => 'GET']) }}
         <div class="row justify-content-center text-center">
             <div class="col-sm-6">

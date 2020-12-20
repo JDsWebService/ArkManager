@@ -15,7 +15,7 @@
             <!-- End Item Quantity -->
 
             <!-- Item Quality -->
-            @if($trade->soldHasQuality)
+            @if($trade->soldItem->hasQuality)
             <tr>
                 <th class="text-white">Quality:</th>
                 <td class="text-center">
@@ -45,7 +45,7 @@
             <!-- End Item Quality -->
 
             <!-- Item Armor -->
-            @if($trade->soldHasArmor)
+            @if($trade->soldItem->hasArmor)
                 <tr>
                     <th class="text-white">Armor:</th>
                     <td class="text-center">
@@ -55,7 +55,7 @@
             @endif
             <!-- Send Item Armor -->
 
-            @if($trade->soldHasTemperature)
+            @if($trade->soldItem->hasTemperature)
             <!-- Item Hypothermic -->
             <tr>
                 <th class="text-white">Hypothermic Resistance:</th>
@@ -72,7 +72,7 @@
             @endif
 
             <!-- Item Damage -->
-            @if($trade->soldHasDamage)
+            @if($trade->soldItem->hasDamage)
                 <tr>
                     <th class="text-white">Damage: </th>
                     <td class="text-center">{{ $trade->sold_damage }}%</td>
@@ -81,7 +81,7 @@
             <!-- End Item Damage -->
 
             <!-- Item Durability -->
-            @if($trade->soldHasDurability)
+            @if($trade->soldItem->hasDurability)
                 <tr>
                     <th class="text-white">Durability</th>
                     <td class="text-center">{{ $trade->sold_durability }}</td>
@@ -90,7 +90,7 @@
             <!-- End Item Durability -->
 
             <!-- Item Blueprint -->
-            @if($trade->soldHasBlueprint)
+            @if($trade->soldItem->hasBlueprint)
                 <tr>
                     <th class="text-white">Is Item A Blueprint?
                     <td class="text-center">
