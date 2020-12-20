@@ -2,6 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use Carbon\Carbon;
+use App\Models\Auth\SessionModel;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -32,6 +35,9 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
+        if(!$user) {
+            return redirect()->route('login.discord');
+        }
 
         View::share('user', $user);
         return $next($request);

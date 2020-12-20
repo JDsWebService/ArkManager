@@ -18,7 +18,9 @@ class CheckIfUserAcceptsConditions
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
-
+        if(!$user) {
+            return redirect()->route('login.discord');
+        }
         $privacy = $this->checkPrivacyAccept($user);
         $terms = $this->checkTermsAccept($user);
         if(!$privacy || !$terms) {

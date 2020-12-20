@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\Auth\User;
 use App\Handlers\LogHandler;
+use App\Models\Auth\SessionModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -97,7 +98,7 @@ class LoginController extends Controller
         // Save User
         $user->save();
 
-        Auth::login($user, true);
+        Auth::login($user, false);
 
         $this->isUserStaff($user);
 
