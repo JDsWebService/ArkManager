@@ -18,11 +18,32 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $username = $faker->username;
+    $discriminator = $faker->unique()->randomNumber(4);
+    $fullUsername = $username . "#" . $discriminator;
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'provider' => 'discord',
+        'provider_id' => $faker->unique()->randomNumber(9) . $faker->unique()->randomNumber(9),
+        'username' => $username,
+        'discriminator' => $discriminator,
+        'fullusername' => $fullUsername,
+        'avatar' => 'https://placekitten.com/128/128',
+        'email' => $faker->unique()->email,
+        'email_verified' => $faker->boolean,
+        'locale' => $faker->locale,
+        'twofactor' => $faker->boolean,
+        'admin' => true,
+        'tos_accept' => true,
+        'tos_accept_date' => \Carbon\Carbon::now(),
+        'privacy_accept' => true,
+        'privacy_accept_date' => \Carbon\Carbon::now(),
+        'news_notifications' => true,
+        'discord_notifications' => true,
+        'internal_notifications' => true,
+        'twitter' => null,
+        'facebook' => null,
+        'tribe_id' => null,
+        'tribe_sees_dinos' => $faker->boolean,
         'remember_token' => Str::random(10),
     ];
 });
