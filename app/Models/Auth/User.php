@@ -80,8 +80,26 @@ class User extends Authenticatable
         return TradeItem::where('user_id', $this->id)->whereNull('deleted_at')->paginate(5);
     }
 
+    /**
+     * Returns if the user is an admin
+     *
+     * @return bool
+     */
     public function getIsAdminAttribute() {
         if($this->admin) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns the online status of the user
+     *
+     * @return bool
+     */
+    public function getIsOnlineAttribute() {
+        $session = SessionModel::where('user_id', $this->id)->first();
+        if($session != null) {
             return true;
         }
         return false;

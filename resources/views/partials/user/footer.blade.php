@@ -1,4 +1,4 @@
-<div class="footer-wrapper">
+<div class="footer-wrapper mt-3">
     <div class="footer-section f-section-1">
         <p class="">Copyright © {{ \Carbon\Carbon::now()->year }} ArkManager.app, All rights reserved.</p>
     </div>

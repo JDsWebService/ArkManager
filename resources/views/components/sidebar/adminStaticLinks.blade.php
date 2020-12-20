@@ -36,3 +36,13 @@
         </div>
     </a>
 </li>
+
+<!-- Users Index Route -->
+<li class="menu">
+    <a href="{{ route('admin.users.index') }}" {{ $routeName == 'admin.users.index' ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
+        <div>
+            <i class="fas fa-users"></i>
+            <span> Users</span>
+        </div>
+    </a>
+</li>

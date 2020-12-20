@@ -72,6 +72,14 @@ Route::prefix('admin')
     Route::post('force/login', 'Auth\ForceLoginController@forceLogin')
         ->name('force.login');
 
+    // Users Routes
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::get('view/{id}', 'Admin\UsersController@view')
+            ->name('view');
+        Route::get('/', 'Admin\UsersController@index')
+            ->name('index');
+    });
+
     // Testing Route for debugging purposes.
     Route::get('test', 'TestingController@test')->name('test');
 });
