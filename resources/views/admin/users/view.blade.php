@@ -32,7 +32,7 @@
                 <tr>
                     <th>Avatar Link:</th>
                     <td>
-                        <a href="{{ $user->avatar }}" class="text-white" target="_blank">
+                        <a href="{{ \App\Handlers\UserHandler::getUserAvatar($user) }}" class="text-white" target="_blank">
                             Image Link <i class="fas fa-external-link-alt"></i>
                         </a>
                     </td>

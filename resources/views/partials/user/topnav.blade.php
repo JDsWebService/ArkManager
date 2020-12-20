@@ -18,7 +18,7 @@
         <ul class="navbar-item flex-row ml-md-auto">
             <li class="nav-item dropdown user-profile-dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{ $user->avatar }}" alt="avatar">
+                    <img src="{{ \App\Handlers\UserHandler::getUserAvatar($user) }}" alt="avatar">
                 </a>
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div>

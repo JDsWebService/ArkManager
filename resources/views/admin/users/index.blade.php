@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Users Index')
+@section('title', "Users Index ({$totalUsers} Total)")
 
 @section('content')
 

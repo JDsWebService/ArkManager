@@ -4,7 +4,7 @@
             <h3 class="pb-3">Profile</h3>
         </div>
         <div class="text-center user-info">
-            <img src="{{ $user->avatar }}" alt="avatar">
+            <img src="{{ \App\Handlers\UserHandler::getUserAvatar($user) }}" alt="avatar">
             <p class="">{{ $user->fullusername }}</p>
         </div>
         <div class="user-info-list">

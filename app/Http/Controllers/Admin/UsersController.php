@@ -15,9 +15,11 @@ class UsersController extends Controller
      * @return mixed
      */
     public function index() {
-        $users = User::orderBy('username')->paginate();
+        $users = User::orderBy('username')->paginate(15);
+        $totalUsers = User::all()->count();
         return view('admin.users.index')
-                    ->withUsers($users);
+                    ->withUsers($users)
+                    ->withTotalUsers($totalUsers);
     }
 
     /**
