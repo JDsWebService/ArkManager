@@ -19,17 +19,19 @@
                     </li>
 
 
-                    <li class="contacts-block__item">
-                        <ul class="list-inline">
+                    @if($tribe->discord_link != "" || $tribe->discord_link != null)
+                        <li class="contacts-block__item">
+                            <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <div class="social-icon">
-                                        <a href="#" class="user-profile-card-social">
-                                            <i class="fab fa-facebook-square"></i>
+                                        <a href="{{ $tribe->discord_link }}" class="user-profile-card-social">
+                                            <i class="fab fa-discord"></i>
                                         </a>
                                     </div>
                                 </li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div> <!-- ./user-info-list -->
