@@ -21,7 +21,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                <img src="{{ $user->avatar }}" alt="{{ $user->fullusername }} Avatar" style="width:32px; height 32px;">
+                                <img src="{{ \App\Handlers\UserHandler::getUserAvatar($user) }}" alt="{{ $user->fullusername }} Avatar" style="width:32px; height 32px;">
                             </td>
                             <td>{{ $user->fullusername }}</td>
                             <td>{{ $user->email }}</td>
