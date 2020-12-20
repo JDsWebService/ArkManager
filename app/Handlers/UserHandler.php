@@ -37,19 +37,36 @@ class UserHandler
      * @return \Illuminate\Http\RedirectResponse|mixed|string
      */
     public static function getUserAvatar(\App\Models\Auth\User $user) {
-        $client = new Client();
-
-        try {
-            $response = $client->head($user->avatar);
-        } catch(BadResponseException $e) {
-            return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
+        $url = $user->avatar;
+        // $url = 'https://cdn.discordapp.com/avatars/444779845856002048/22674649e323c36e15ba993d3b7273ac.jpg';
+        $code = '';
+        if( is_null( $url ) ){
+            return false;
+        }else{
+            $handle = curl_init($url);
+            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+            curl_exec($handle);
+            $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+            if( $code == '404' ){
+                return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
+            }else{
+                return $user->avatar;
+            }
+            curl_close($handle);
         }
 
-        if($response->getStatusCode() == 200) {
-            return $user->avatar;
-        } else {
-            return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
-        }
+        // $client = new Client();
+        // try {
+        //     $response = $client->request('GET', (string) $user->avatar, ['allow_redirects' => false, 'verify' => false]);
+        // } catch(BadResponseException $e) {
+        //     return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
+        // }
+        //
+        // if($response->getStatusCode() == 200) {
+        //     return $user->avatar;
+        // } else {
+        //     return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
+        // }
     }
 
 }
