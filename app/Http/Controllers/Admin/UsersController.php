@@ -20,6 +20,12 @@ class UsersController extends Controller
                     ->withUsers($users);
     }
 
+    /**
+     * Views information pertaining to the user
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function view($id) {
         $user = User::where('id', $id)->first();
         if($user == null) {

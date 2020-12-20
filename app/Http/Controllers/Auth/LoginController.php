@@ -66,6 +66,11 @@ class LoginController extends Controller
             ->stateless()
             ->user();
 
+        if($discordUser->user['email'] == null || $discordUser->user['email'] == "") {
+            Session::flash('danger', 'eMail Address not found. Please add your email address into your Discord Settings in the Discord App to continue!');
+            return redirect()->route('index');
+        }
+
         // See if User already exists in database
         $user = User::where([
             ['provider_id', '=', $discordUser->user['id']]
