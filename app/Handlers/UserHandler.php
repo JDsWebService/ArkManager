@@ -38,10 +38,8 @@ class UserHandler
      */
     public static function getUserAvatar(\App\Models\Auth\User $user) {
         $url = $user->avatar;
-        // $url = 'https://cdn.discordapp.com/avatars/444779845856002048/22674649e323c36e15ba993d3b7273ac.jpg';
-        $code = '';
         if( is_null( $url ) ){
-            return false;
+            return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
         }else{
             $handle = curl_init($url);
             curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
@@ -54,6 +52,11 @@ class UserHandler
             }
             curl_close($handle);
         }
+
+        // -------------------------------------------------------------- //
+        // The following Guzzle Check will be left here to later come back to
+        // Ref: https://stackoverflow.com/questions/65383593/laravel-production-error-using-guzzle-http-to-get-url-status-code
+        // -------------------------------------------------------------- //
 
         // $client = new Client();
         // try {

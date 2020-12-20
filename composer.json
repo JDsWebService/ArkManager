@@ -24,7 +24,8 @@
         "symfony/css-selector": "^5.1",
         "symfony/dom-crawler": "^5.1",
         "symfony/yaml": "^5.1",
-        "unisharp/laravel-filemanager": "^2.2"
+        "unisharp/laravel-filemanager": "^2.2",
+        "ext-curl": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
