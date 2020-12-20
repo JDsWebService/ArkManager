@@ -39,7 +39,7 @@ class UserHandler
     public static function getUserAvatar(\App\Models\Auth\User $user) {
         $client = new Client();
         try {
-            $response = $client->get($user->avatar);
+            $response = $client->request('GET', $user->avatar, ['allow_redirects' => false]);
         } catch(BadResponseException $e) {
             return "https://dummyimage.com/128x128/888ea8/ebedf2.png?text=No+Image+Found";
         }
