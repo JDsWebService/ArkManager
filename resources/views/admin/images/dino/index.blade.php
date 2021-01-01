@@ -13,9 +13,18 @@
     </div>
 
     <div class="row justify-content-center mt-3">
-        <div class="col-sm-3 text-center">
-            <div class="bg-light mb-3">
-                <img src="{{ $dino->image_public_path }}" alt="">
+        <div class="col-sm-5 text-center">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="bg-light mb-3">
+                        <img src="{{ $dino->image_public_path }}" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <img src="{{ $dino->image_public_path }}" alt="">
+                    </div>
+                </div>
             </div>
             <p>
                 Does this image need to be inverted?

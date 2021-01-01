@@ -9,21 +9,10 @@
         @include('partials.user.preloader')
         @include('modals.app.messages')
 
-        @if(Auth::check())
-            @if(Auth::user()->isAdmin == true)
-                <!-- Navbar & Hero Post-Release Includes -->
-                @include('partials.app.navbar')
-                @include('content.app.hero')
-            @else
-                <!-- Navbar & Hero Pre-Release Includes -->
-                @include('partials.app.navbar-beta')
-                @include('content.app.hero-beta')
-            @endif
-        @else
-            <!-- Navbar & Hero Pre-Release Includes -->
-            @include('partials.app.navbar-beta')
-            @include('content.app.hero-beta')
-        @endif
+
+        <!-- Navbar & Hero Post-Release Includes -->
+        @include('partials.app.navbar')
+        @include('content.app.hero')
 
 
         <main id="main">

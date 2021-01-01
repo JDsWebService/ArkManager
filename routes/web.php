@@ -106,7 +106,7 @@ Route::prefix('admin')
 /// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!///
 /// !!!!!!!!! Added auth.admin for testing purposes on production !!!!!!!! ///
 /// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ///
-Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(function () {
+Route::middleware(['auth', 'user.accept.conditions'])->group(function () {
 
     // User Routes
     Route::prefix('user')->name('user.')->group(function () {

@@ -1,5 +1,5 @@
 <div class="card">
-    <img class="card-img-top bg-white dino-icon-card" src="{{ asset("{$metaInfo->image_public_path}") }}" alt="{{ $metaInfo->name }} Icon">
+    <img class="card-img-top dino-icon-card" src="{{ asset("{$metaInfo->image_public_path}") }}" alt="{{ $metaInfo->name }} Icon">
     <div class="card-body">
         <h5 class="card-title">{{ $metaInfo->name }} Technical Info</h5>
         @if($metaInfo->description)
