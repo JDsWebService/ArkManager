@@ -23,7 +23,7 @@
                     <h3>Bug Reporting</h3>
                     <hr>
                     <p>
-                        If you find any bugs on the site, please open a ticket up in <a href="https://discord.gg/QuafdYEEQB" class="text-primary">Our Discord</a>. We will respond to your ticket as soon as possible, and hopefully get you a fix to your issue.
+                        If you find any bugs on the site, please open a ticket up in <a href="https://discord.gg/qPgdqfFTgm" class="text-primary">Our Discord</a>. We will respond to your ticket as soon as possible, and hopefully get you a fix to your issue.
                     </p>
                 </div>
             </div>
