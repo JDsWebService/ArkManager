@@ -102,12 +102,8 @@ class LoginController extends Controller
 
         $this->isUserStaff($user);
 
-        // Handle BETA Access Redirect
-        Session::flash('success', 'You have been signed up for BETA access, make sure that you check your eMail on December 31st 2020 for the release information!');
-        return redirect()->route('index');
-
-        // Return to User Dashboard After BETA Access Has Been Launched!
-        // return redirect()->route('user.dashboard');
+        // Return to User Dashboard
+         return redirect()->route('user.dashboard');
 
     }
 
