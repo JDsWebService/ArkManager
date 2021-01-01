@@ -21,7 +21,7 @@ class CheckIfUserIsInTribe
 
         if($user->tribe == null) {
             Session::flash('warning', 'You must create a tribe first before using this tool.');
-            return redirect()->route('tribe.create');
+            return redirect()->route('tribe.management.create');
         }
 
         // Fallback return
