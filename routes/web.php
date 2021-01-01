@@ -34,6 +34,21 @@ Route::prefix('admin')
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 
+    // Images
+    Route::prefix('images')->name('images.')->group(function () {
+        Route::get('/', 'Admin\ImagesController@index')
+            ->name('index');
+        // Dino Image Manipulation
+        Route::prefix('dino')->name('dino.')->group(function () {
+            Route::get('invert/{id}', 'Admin\ImagesController@invertDinoImage')
+                ->name('invert');
+            Route::get('skip/{id}', 'Admin\ImagesController@skipDinoImage')
+                ->name('skip');
+            Route::get('/', 'Admin\ImagesController@getDinoInvertColorIndex')
+                ->name('index');
+        });
+    });
+
     // Admin Changelog Routes
     Route::prefix('changelog')->name('changelog.')->group(function () {
         Route::get('add', 'Admin\ChangelogController@add')
@@ -105,29 +120,43 @@ Route::middleware(['auth', 'user.accept.conditions', 'auth.admin'])->group(funct
 
     // Tribe Routes
     Route::prefix('tribe')->name('tribe.')->group(function () {
-        Route::get('create', 'Tribe\TribeController@create')
+        Route::prefix('management')->name('management.')->group(function () {
+            Route::get('create', 'Tribe\TribeController@create')
                 ->name('create');
-        Route::post('store', 'Tribe\TribeController@store')
+            Route::post('store', 'Tribe\TribeController@store')
                 ->name('store');
-        Route::get('edit/{uuid}', 'Tribe\TribeController@edit')
+            Route::get('edit/{uuid}', 'Tribe\TribeController@edit')
                 ->name('edit');
-        Route::put('update/{uuid}', 'Tribe\TribeController@update')
+            Route::put('update/{uuid}', 'Tribe\TribeController@update')
                 ->name('update');
-        Route::get('view/{uuid}', 'Tribe\TribeController@view')
+            Route::get('view/{uuid}', 'Tribe\TribeController@view')
                 ->name('view');
 
-        Route::prefix('user')->name('user.')->group(function () {
-            Route::get('add/{uuid}', 'Tribe\TribeController@addUser')
-                ->name('add');
-            Route::post('sendEmail/{uuid}', 'Tribe\TribeController@sendTribeInviteEmail')
-                ->name('sendEmail');
-            Route::get('acceptInvite/{token}', 'Tribe\TribeController@acceptInvite')
-                ->name('acceptInvite');
-            Route::get('manage', 'Tribe\TribeController@manageUsers')
-                ->name('manage');
-            Route::delete('remove/{userid}', 'Tribe\TribeController@removeUser')
-                ->name('remove');
-        });
+            Route::prefix('user')->name('user.')->group(function () {
+                Route::get('add/{uuid}', 'Tribe\TribeController@addUser')
+                    ->name('add');
+                Route::post('sendEmail/{uuid}', 'Tribe\TribeController@sendTribeInviteEmail')
+                    ->name('sendEmail');
+                Route::get('acceptInvite/{token}', 'Tribe\TribeController@acceptInvite')
+                    ->name('acceptInvite');
+                Route::get('manage', 'Tribe\TribeController@manageUsers')
+                    ->name('manage');
+                Route::delete('remove/{userid}', 'Tribe\TribeController@removeUser')
+                    ->name('remove');
+            }); // End Tribe User Routes
+        }); // End Tribe Management Routes
+
+        Route::prefix('applications')->name('applications.')->group(function() {
+            Route::get('create', 'Tribe\ApplicationController@create')
+                ->name('create');
+            Route::post('store', 'Tribe\ApplicationController@store')
+                ->name('store');
+            Route::get('edit/{uuid}', 'Tribe\ApplicationController@edit')
+                ->name('edit');
+            Route::put('update/{uuid}', 'Tribe\ApplicationController@update')
+                ->name('update');
+        }); // End Tribe Application Routes
+
     }); // End Tribe Routes
 
     // Dino Routes

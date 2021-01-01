@@ -1,8 +1,7 @@
 <li class="menu">
     <a href="#dino-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
         {{ strpos($routeName, 'dino') !== false ? 'aria-expanded=true data-active=true' : ""}}
-        {{ strpos($routeName, 'color') !== false ? 'aria-expanded=true data-active=true' : ""}}
-    >
+        {{ strpos($routeName, 'color') !== false ? 'aria-expanded=true data-active=true' : ""}}>
         <div class="">
             <i class="fas fa-dragon"></i>
             <span>Dinos</span>

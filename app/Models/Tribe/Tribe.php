@@ -52,4 +52,13 @@ class Tribe extends Model
         return Auth::user()->id == $this->user_id;
     }
 
+    /**
+     * Defines the relationship between the tribe and the tribe application
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function application() {
+        return $this->hasOne('App\Models\Tribe\Application', 'tribe_id');
+    }
+
 }

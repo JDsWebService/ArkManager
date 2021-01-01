@@ -49,6 +49,18 @@ class TribeHandler
     }
 
     /**
+     * Returns the Tribes Home Server ID
+     *
+     * @return int|null
+     */
+    public static function getTribeHomeServerID() {
+        if(Auth::user()->tribe->homeServer == null) {
+            return null;
+        }
+        return Auth::user()->tribe->homeServer->id;
+    }
+
+    /**
      * Stores a new tribe in the database
      *
      * @param Request $request

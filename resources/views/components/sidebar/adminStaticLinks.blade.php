@@ -46,3 +46,14 @@
         </div>
     </a>
 </li>
+
+
+<!-- Users Index Route -->
+<li class="menu">
+    <a href="{{ route('admin.images.index') }}" {{ strpos($routeName, 'admin.images') !== false ? 'data-active=true' : "" }} aria-expanded="false" class="dropdown-toggle">
+        <div>
+            <i class="fas fa-images"></i>
+            <span> Images</span>
+        </div>
+    </a>
+</li>

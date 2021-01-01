@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center">
         <div class="col-sm-12">
-            {{ Form::open(['route' => 'tribe.store', 'method' => 'POST', 'files' => true]) }}
+            {{ Form::open(['route' => 'tribe.management.store', 'method' => 'POST', 'files' => true]) }}
 
             <div class="row justify-content-center">
                 <div class="col-sm-6">

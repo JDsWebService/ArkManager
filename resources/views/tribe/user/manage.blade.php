@@ -22,7 +22,7 @@
                             <td>{{ $user->trades->count() }}</td>
                             <td>{{ $user->dinos->count() }}</td>
                             <td>
-                                {{ Form::open(['route' => ['tribe.user.remove', $user->id], 'method' => 'DELETE']) }}
+                                {{ Form::open(['route' => ['tribe.management.user.remove', $user->id], 'method' => 'DELETE']) }}
                                     <button type="submit" class="btn btn-danger">
                                         <i class="far fa-trash-alt"></i> Remove
                                     </button>

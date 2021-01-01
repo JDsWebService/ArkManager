@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center">
         <div class="col-sm-12">
-            {{ Form::model($tribe, ['route' => ['tribe.update', $tribe->uuid], 'method' => 'PUT', 'files' => true]) }}
+            {{ Form::model($tribe, ['route' => ['tribe.management.update', $tribe->uuid], 'method' => 'PUT', 'files' => true]) }}
 
             <div class="row justify-content-center">
                 <div class="col-sm-6">

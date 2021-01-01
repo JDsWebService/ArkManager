@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center">
         <div class="col-sm-6">
-            {{ Form::open(['route' => ['tribe.user.sendEmail', $tribe->uuid], 'method' => 'POST']) }}
+            {{ Form::open(['route' => ['tribe.management.user.sendEmail', $tribe->uuid], 'method' => 'POST']) }}
 
                 <label for="receiving_user">Enter Tribemate's Discord Username or eMail Address</label>
                 <input type="text" name="receiving_user" class="form-control" placeholder="Username#1234 OR email@example.com">
