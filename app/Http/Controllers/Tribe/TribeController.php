@@ -32,7 +32,7 @@ class TribeController extends Controller
         $servers = ServerHandler::getOfficialServers();
         if($user->tribe != null) {
             Session::flash('warning', 'You have already created a tribe, consider editing it instead.');
-            return redirect()->route('tribe.edit', $user->tribe->uuid);
+            return redirect()->route('tribe.management.edit', $user->tribe->uuid);
         }
 
         return view('tribe.create')
@@ -51,7 +51,7 @@ class TribeController extends Controller
         // If no tribe exists
         if(!$tribe) {
             Session::flash('warning', 'You have to create a tribe before editing it!');
-            return redirect()->route('tribe.create');
+            return redirect()->route('tribe.management.create');
         }
         // If the authenticated user is not the owner
         if(!$tribe->isUserTribeOwner) {
@@ -77,7 +77,7 @@ class TribeController extends Controller
         $validator = TribeHandler::validateTribeRequest($request);
         if($validator->fails()) {
             return redirect()
-                ->route('tribe.create')
+                ->route('tribe.management.create')
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
@@ -86,12 +86,12 @@ class TribeController extends Controller
 
         if(!$tribe) {
             Session::flash('danger', 'Something went wrong while trying to save the tribe. Please contact a staff member if this happens again.');
-            return redirect()->route('tribe.create');
+            return redirect()->route('tribe.management.create');
         }
 
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully created your tribe!');
-        return redirect()->route('tribe.view', Auth::user()->tribe->uuid);
+        return redirect()->route('tribe.management.view', Auth::user()->tribe->uuid);
     }
 
     /**
@@ -107,7 +107,7 @@ class TribeController extends Controller
         $validator = TribeHandler::validateTribeRequest($request);
         if($validator->fails()) {
             return redirect()
-                ->route('tribe.edit', $tribe->uuid)
+                ->route('tribe.management.edit', $tribe->uuid)
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
@@ -115,12 +115,12 @@ class TribeController extends Controller
         $tribe = TribeHandler::updateTribe($request, $tribe);
         if(!$tribe) {
             Session::flash('danger', 'Something went wrong while trying to save the tribe. Please contact a staff member if this happens again.');
-            return redirect()->route('tribe.edit', $tribe->uuid);
+            return redirect()->route('tribe.management.edit', $tribe->uuid);
         }
 
         // Flash Session Message and Return
         Session::flash('success', 'You have successfully updated your tribe!');
-        return redirect()->route('tribe.view', Auth::user()->tribe->uuid);
+        return redirect()->route('tribe.management.view', Auth::user()->tribe->uuid);
 
     }
 
@@ -206,6 +206,7 @@ class TribeController extends Controller
         $tribe = Auth::user()->tribe;
         if(!$tribe->isUserTribeOwner) {
             Session::flash('danger', 'You do not have permission to manage users in the tribe');
+            return redirect()->route('user.dashboard');
         }
         return view('tribe.user.manage')
                 ->withTribe($tribe);
@@ -220,7 +221,7 @@ class TribeController extends Controller
     public function removeUser($userid) {
         $user = User::find($userid);
         if($user->id == $user->tribe->user_id) {
-            Session::flash('danger', 'You can remove yourself from your own tribe!');
+            Session::flash('danger', 'You can not remove yourself from your own tribe!');
             return redirect()->route('tribe.user.manage');
         }
         $user->tribe_id = null;
